@@ -6,6 +6,12 @@
       "runtimeExecutable": "npx",
       "runtimeArgs": ["-y", "http-server", "web", "-p", "4173", "-c-1", "--silent"],
       "port": 4173
+    },
+    {
+      "name": "venus-legado",
+      "runtimeExecutable": "npm",
+      "runtimeArgs": ["run", "dev", "--prefix", "web/experiences/venus-legado"],
+      "port": 5178
     }
   ]
 }
