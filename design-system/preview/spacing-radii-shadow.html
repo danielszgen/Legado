@@ -1,0 +1,24 @@
+<!doctype html>
+<!-- @dsCard group="Spacing" name="Radios y sombras" subtitle="2 / 3 / 6 · sombras cálidas" viewport="700x200" -->
+<html lang="es"><head>
+<meta charset="utf-8">
+<link rel="stylesheet" href="../colors_and_type.css">
+<style>
+  html,body{margin:0;padding:0;}
+  .card{padding:24px 28px;min-height:100%;}
+  
+  .grid{display:grid;grid-template-columns:repeat(4,1fr);gap:14px}
+  .box{aspect-ratio:1.4/1;background:#FAF6EF;display:flex;align-items:flex-end;padding:10px;font-family:var(--font-sans);font-size:10px;letter-spacing:.18em;text-transform:uppercase;color:var(--fg2)}
+  .b1{border-radius:2px;box-shadow:var(--shadow-sink);border:.5px solid #E2D4B2}
+  .b2{border-radius:3px;box-shadow:var(--shadow-card)}
+  .b3{border-radius:6px;box-shadow:var(--shadow-card)}
+  .b4{border-radius:999px;background:#C9A86A;color:#1A1410;aspect-ratio:1.4/1;padding:0;justify-content:center;align-items:center;font-weight:600}
+
+</style></head><body><div class="card">
+  <div class="grid">
+    <div class="box b1">Radius 2 · hairline</div>
+    <div class="box b2">Radius 3 · sombra card</div>
+    <div class="box b3">Radius 6 · imagen</div>
+    <div class="box b4">Pill · chip</div>
+  </div>
+</div></body></html>

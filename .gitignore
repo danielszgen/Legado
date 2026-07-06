@@ -1,0 +1,14 @@
+# Temporales de sesión / verificación
+tools/thumbs/
+*.b64
+
+# Duplicado local exacto de design-system/ (24 MB)
+legado-design-system/
+
+# Sistema
+Thumbs.db
+Desktop.ini
+.DS_Store
+
+# Dependencias (si se añaden en el futuro)
+node_modules/

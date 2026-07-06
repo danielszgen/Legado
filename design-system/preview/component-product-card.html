@@ -1,0 +1,31 @@
+<!doctype html>
+<!-- @dsCard group="Components" name="Ficha de producto" subtitle="Baltic · Nordic — precio sin descuento" viewport="700x440" -->
+<html lang="es"><head>
+<meta charset="utf-8">
+<link rel="stylesheet" href="../colors_and_type.css">
+<style>
+  html,body{margin:0;padding:0;}
+  .card{padding:24px 28px;min-height:100%;}
+  
+  .grid{display:grid;grid-template-columns:1fr 1fr;gap:18px}
+  .card-p{background:#FAF6EF}
+  .img{aspect-ratio:4/5;background:linear-gradient(180deg,#9B5E2C 0%,#6E4322 100%);display:flex;align-items:flex-end;padding:14px;position:relative}
+  .img-2{background:linear-gradient(180deg,#7C5430 0%,#3A2616 100%)}
+  .no{position:absolute;top:10px;right:12px;font-family:var(--font-sans);font-size:10px;letter-spacing:.2em;text-transform:uppercase;color:rgba(244,239,230,.7);font-variant-numeric:tabular-nums}
+  .body{padding:14px 0 0;display:flex;justify-content:space-between;align-items:baseline}
+  .name{font-family:var(--font-display);font-size:24px;line-height:1;letter-spacing:-.01em;color:var(--fg1)}
+  .meta{font-family:var(--font-sans);font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:var(--fg3);margin-top:4px}
+  .price{font-family:var(--font-sans);font-size:14px;font-weight:500;color:var(--fg1);font-variant-numeric:tabular-nums}
+
+</style></head><body><div class="card">
+  <div class="grid">
+    <div class="card-p">
+      <div class="img"><span class="no">Nº 01 / 03</span></div>
+      <div class="body"><div><div class="name">Baltic</div><div class="meta">Cuero · cognac</div></div><div class="price">890 €</div></div>
+    </div>
+    <div class="card-p">
+      <div class="img img-2"><span class="no">Nº 02 / 03</span></div>
+      <div class="body"><div><div class="name">Nordic</div><div class="meta">Lino lavado · arena</div></div><div class="price">820 €</div></div>
+    </div>
+  </div>
+</div></body></html>

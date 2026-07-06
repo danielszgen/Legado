@@ -1,0 +1,367 @@
+<!DOCTYPE html>
+<html lang="es" data-combo="ebano">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sillón Nordic — LEGADO · Sillones para toda la vida</title>
+  <meta name="description" content="Sillón relax premium hecho bajo demanda en España. Configura tapizado, color y madera. Garantía de 20 años.">
+  <link rel="stylesheet" href="colors_and_type.css">
+  <link rel="stylesheet" href="css/site.css">
+</head>
+<body data-combo="ebano">
+
+<!-- ════════════════════════════════════════════════════════════
+     [shopify] layout/theme.liquid → section: header (sticky)
+     ════════════════════════════════════════════════════════════ -->
+<nav class="nav">
+  <div class="nav-inner">
+    <a class="nav-brand" href="index.html">
+      <img class="nav-seal" src="assets/logo-seal.jpg" alt="Sello LEGADO">
+      <span class="nav-word">Legado</span>
+    </a>
+    <div class="nav-links">
+      <a class="nav-link" href="index.html">Inicio</a>
+      <a class="nav-link" href="producto.html" aria-current="page">La colección</a>
+      <a class="nav-link" href="historia.html">Historia</a>
+      <a class="nav-cta" href="#configurador">Configura tu sillón</a>
+    </div>
+  </div>
+</nav>
+
+<!-- ════════════════════════════════════════════════════════════
+     [shopify] section: version-selector
+     1 producto Shopify por modelo; este selector navega entre los
+     4 productos de la colección monoproducto "butacas".
+     ════════════════════════════════════════════════════════════ -->
+<section class="version-bar" style="padding-top:28px">
+  <div class="version-track reveal" id="version-track"></div>
+</section>
+
+<!-- ════════════════════════════════════════════════════════════
+     [shopify] templates/product.json · section: product-hero
+     Galería (product.media) + título, precio, CTA (form add to cart)
+     ════════════════════════════════════════════════════════════ -->
+<section class="pp-hero">
+  <div class="pp-gallery reveal" data-gallery>
+    <div class="pp-gallery-main" data-parallax="14">
+      <div class="ph is-active"><div class="ph-fill"></div></div>
+      <div class="ph"><div class="ph-fill"></div></div>
+      <div class="ph"><div class="ph-fill"></div></div>
+      <img class="pp-gallery-seal" src="assets/logo-seal.jpg" alt="">
+    </div>
+    <div class="pp-thumbs">
+      <button class="pp-thumb is-active" type="button" aria-label="Vista ambiente"><span class="ph"><span class="ph-fill"></span></span></button>
+      <button class="pp-thumb" type="button" aria-label="Vista tres cuartos"><span class="ph"><span class="ph-fill"></span></span></button>
+      <button class="pp-thumb" type="button" aria-label="Detalle de textura"><span class="ph"><span class="ph-fill"></span></span></button>
+    </div>
+  </div>
+  <div class="reveal" style="--reveal-delay:.12s">
+    <div class="pp-no" id="pp-no">Nº 01 / 04 · Edición 2026</div>
+    <h1 class="pp-name" id="pp-name">Nordic</h1>
+    <p class="pp-blurb" id="pp-blurb"></p>
+    <div class="pp-meta">
+      <div class="pp-price" id="pp-price"></div>
+      <div class="pp-envio">Hecho en 4 semanas · Envío incluido</div>
+    </div>
+    <div style="margin-top:26px; display:flex; gap:18px; flex-wrap:wrap;">
+      <a class="btn btn-primary" href="#configurador" id="pp-cta">Configurar el Nordic</a>
+    </div>
+    <p class="pp-persona" id="pp-persona"></p>
+  </div>
+</section>
+
+<!-- ════════════════════════════════════════════════════════════
+     [shopify] section: product-configurator (custom)
+     Render 3D · tapizado/color = opciones de variante;
+     sala/luz/postura = line item properties (presentación).
+     ════════════════════════════════════════════════════════════ -->
+<section class="cfg" id="configurador">
+  <div class="cfg-head">
+    <div class="pp-block-no reveal">Configurador</div>
+    <h2 class="pp-block-title reveal" style="--reveal-delay:.08s; font-size:clamp(30px,3.4vw,44px); max-width:22ch">
+      Hazlo tuyo antes de que exista.
+    </h2>
+    <p class="pp-block-body reveal" style="--reveal-delay:.16s; max-width:52ch; margin-top:14px">
+      Gíralo, recuéstalo, cámbialo de sala y de hora del día.
+      Cada sillón se fabrica con lo que elijas aquí.
+    </p>
+  </div>
+  <div class="cfg-layout reveal" style="--reveal-delay:.2s">
+    <div class="cfg-stage" id="cfg-stage">
+      <div class="cfg-loading">Preparando el taller…</div>
+      <div class="cfg-stage-badge"></div>
+      <div class="cfg-stage-hint">Arrastra para girarlo · 360°</div>
+    </div>
+    <div class="cfg-panel" id="cfg-panel"></div>
+  </div>
+</section>
+
+<!-- ════════════════════════════════════════════════════════════
+     [shopify] section: product-materials (bloque 02 · §28)
+     metafield: legado.composicion (list)
+     ════════════════════════════════════════════════════════════ -->
+<section class="pp-block">
+  <div class="reveal">
+    <div class="pp-block-no">02 · Materiales</div>
+    <h3 class="pp-block-title">Lo que toca tu mano.</h3>
+  </div>
+  <div class="reveal" style="--reveal-delay:.1s" id="pp-materials"></div>
+</section>
+
+<!-- [shopify] section: product-finishes · metaobjects "tapizado" -->
+<section class="pp-block">
+  <div class="reveal">
+    <div class="pp-block-no">03 · Acabados</div>
+    <h3 class="pp-block-title">Cuatro tapizados. Con nombre y origen.</h3>
+  </div>
+  <div class="acabados-grid reveal" style="--reveal-delay:.1s" id="pp-acabados"></div>
+</section>
+
+<!-- [shopify] section: product-dimensions · metafield legado.dimensiones -->
+<section class="pp-block">
+  <div class="reveal">
+    <div class="pp-block-no">04 · Dimensiones</div>
+    <h3 class="pp-block-title">Para que entre por la puerta.</h3>
+  </div>
+  <div class="dim-wrap reveal" style="--reveal-delay:.1s">
+    <div id="pp-dims"></div>
+    <svg viewBox="0 0 240 240" width="100%" style="max-width:240px; margin-left:auto; display:block" aria-hidden="true">
+      <g stroke="var(--marfil)" stroke-width="0.6" fill="none" stroke-linecap="round" stroke-linejoin="round" opacity="0.85">
+        <path d="M50 60 Q60 40 90 38 L150 38 Q180 40 190 60 L190 150 Q190 165 175 165 L65 165 Q50 165 50 150 Z"/>
+        <path d="M70 165 L65 215 M170 165 L175 215"/>
+        <path d="M50 110 L40 110 L40 175 M190 110 L200 110 L200 175"/>
+      </g>
+      <g stroke="var(--dorado)" stroke-width="0.4" stroke-dasharray="2 3">
+        <line x1="40" y1="225" x2="200" y2="225"/><line x1="222" y1="38" x2="222" y2="215"/>
+      </g>
+      <text x="120" y="237" text-anchor="middle" style="font:9px Inter,sans-serif; letter-spacing:0.2em; text-transform:uppercase" fill="var(--dorado)">Ancho</text>
+    </svg>
+  </div>
+</section>
+
+<!-- [shopify] section: product-posture (bloque postura/beneficios)
+     metafield: legado.postura · sin lenguaje médico (§13) -->
+<section class="pp-block">
+  <div class="reveal">
+    <div class="pp-block-no">05 · Postura</div>
+    <h3 class="pp-block-title">Para qué se sienta uno aquí.</h3>
+  </div>
+  <div class="pp-block-body reveal" style="--reveal-delay:.1s">
+    <p id="pp-posture"></p>
+    <p style="font-style:italic; color:rgba(244,239,230,0.6)">
+      No prometemos ergonomía con lenguaje médico. Si lo necesitas, te recomendamos un especialista.
+    </p>
+    <div class="cfg-chips" id="pp-mecanismos" style="margin-top:18px"></div>
+  </div>
+</section>
+
+<!-- [shopify] section: product-warranty (estático, settings de sección) -->
+<section class="pp-block">
+  <div class="reveal">
+    <div class="pp-block-no">06 · Garantía</div>
+    <h3 class="pp-block-title">Veinte años. Sin letra pequeña.</h3>
+  </div>
+  <div class="pp-block-body reveal" style="--reveal-delay:.1s">
+    <p>Estructura: <b>20 años</b>. Mecanismos y motores: <b>10 años</b>. Tapicería y relleno: <b>5 años</b>.
+    Si se rompe, lo arreglamos. Si no se puede, te damos uno nuevo. Si tampoco, te devolvemos el dinero. En ese orden.</p>
+  </div>
+</section>
+
+<!-- [shopify] section: product-faq · metaobjects "faq" -->
+<section class="pp-block">
+  <div class="reveal">
+    <div class="pp-block-no">07 · Preguntas</div>
+    <h3 class="pp-block-title">Lo que casi todos preguntan.</h3>
+  </div>
+  <div class="reveal" style="--reveal-delay:.1s">
+    <div class="faq-item is-open">
+      <div class="faq-q"><span>¿Cuánto tarda?</span><span class="faq-mark">+</span></div>
+      <div class="faq-a">Cuatro semanas desde el pedido. No tenemos stock — cada sillón se hace cuando lo pides.</div>
+    </div>
+    <div class="faq-item">
+      <div class="faq-q"><span>¿Cómo lo enviáis?</span><span class="faq-mark">+</span></div>
+      <div class="faq-a">Transporte propio en península. Subida hasta tu salón incluida. Retiramos el embalaje.</div>
+    </div>
+    <div class="faq-item">
+      <div class="faq-q"><span>¿Puedo devolverlo?</span><span class="faq-mark">+</span></div>
+      <div class="faq-a">Treinta días desde la entrega. Sin preguntas.</div>
+    </div>
+    <div class="faq-item">
+      <div class="faq-q"><span>¿Y si el cuero envejece?</span><span class="faq-mark">+</span></div>
+      <div class="faq-a">Se patina. Esa es la idea. Te enviamos pauta de cuidado y aceite hidratante con la pieza.</div>
+    </div>
+  </div>
+</section>
+
+<!-- [shopify] section: product-contact (form → contact) -->
+<section class="section-cuero" style="padding:90px 0">
+  <div class="container" style="display:grid; grid-template-columns:1fr 1fr; gap:64px;">
+    <div class="reveal">
+      <div class="pp-block-no">08 · Hablamos</div>
+      <p class="quote-text" style="margin-top:18px">«Antes de comprar un sillón se piensa una semana. Si quieres pensar en voz alta, escríbeme.»</p>
+      <div class="quote-attr">— Daniel L. · Fundador · hola@legado.es</div>
+    </div>
+    <form class="reveal" style="--reveal-delay:.12s; display:flex; flex-direction:column; gap:18px" data-fake>
+      <div>
+        <label class="eyebrow" style="color:var(--dorado); display:block; margin-bottom:6px">Tu nombre</label>
+        <input class="news-input" style="width:100%; color:var(--marfil); border-bottom-color:var(--dorado)" placeholder="Elena Vidal">
+      </div>
+      <div>
+        <label class="eyebrow" style="color:var(--dorado); display:block; margin-bottom:6px">Email</label>
+        <input class="news-input" style="width:100%; color:var(--marfil); border-bottom-color:var(--dorado)" type="email" placeholder="tu@correo.es">
+      </div>
+      <div>
+        <label class="eyebrow" style="color:var(--dorado); display:block; margin-bottom:6px">Tu pregunta</label>
+        <input class="news-input" style="width:100%; color:var(--marfil); border-bottom-color:var(--dorado)" placeholder="¿El cuero llega ya patinado…?">
+      </div>
+      <p data-fake-ok style="display:none; font-style:italic; color:var(--marfil)">Recibido. Te contestamos hoy mismo.</p>
+      <div><button class="btn btn-primary" type="submit">Enviar pregunta</button></div>
+    </form>
+  </div>
+</section>
+
+<!-- [shopify] section: footer -->
+<footer class="footer">
+  <div class="footer-inner">
+    <div>
+      <img class="nav-seal" src="assets/logo-seal.jpg" alt="Sello LEGADO" style="width:48px;height:48px">
+      <div class="footer-claim">Sillones para toda la vida.</div>
+    </div>
+    <div>
+      <div class="footer-h">Colección</div>
+      <a class="footer-link" href="producto.html?modelo=nordic">Nordic</a>
+      <a class="footer-link" href="producto.html?modelo=venus">Venus</a>
+      <a class="footer-link" href="producto.html?modelo=baltic">Baltic</a>
+      <a class="footer-link" href="producto.html?modelo=lara">Lara</a>
+    </div>
+    <div>
+      <div class="footer-h">La marca</div>
+      <a class="footer-link" href="historia.html">Historia</a>
+      <a class="footer-link" href="historia.html#proceso">Cómo se hace</a>
+      <a class="footer-link" href="historia.html#materiales">Materiales</a>
+    </div>
+    <div>
+      <div class="footer-h">Servicio</div>
+      <a class="footer-link" href="#">Envío y entrega</a>
+      <a class="footer-link" href="#">Devoluciones · 30 días</a>
+      <a class="footer-link" href="#">Garantía · 20 años</a>
+    </div>
+  </div>
+  <div class="footer-base">
+    <span>LEGADO · Hecho en España · MMXXVI</span>
+    <span>hola@legado.es</span>
+  </div>
+</footer>
+
+<script src="js/products.js"></script>
+<script src="js/main.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+<script src="js/configurador.js"></script>
+<script>
+/* ============================================================
+   Página de producto · render de versión activa
+   [shopify] esto es Liquid en producción: product + metafields.
+   Aquí: cliente, con LEGADO.catalogue como espejo del catálogo.
+   ============================================================ */
+(function () {
+  'use strict';
+  const D = window.LEGADO;
+  const params = new URLSearchParams(location.search);
+  let active = D.getProduct(params.get('modelo') || 'nordic').id;
+
+  // Las 3 vistas de la galería por modelo (§19: hero ambiental,
+  // 3/4 con figura, detalle textura) — placeholders hasta tener foto.
+  const galleryTones = {
+    nordic: ['lino', 'ambient', 'nogal'],
+    venus:  ['boucle', 'ambient', 'nogal'],
+    baltic: ['cognac', 'ambient', 'tabaco'],
+    lara:   ['tabaco', 'ambient', 'moka'],
+  };
+
+  // Selector de versión
+  const track = document.getElementById('version-track');
+  D.catalogue.forEach(p => {
+    const b = document.createElement('button');
+    b.className = 'version-chip'; b.type = 'button'; b.dataset.id = p.id;
+    b.innerHTML = '<div class="version-chip-name">' + p.name + '</div>' +
+                  '<div class="version-chip-meta">' + p.segment + ' · desde ' + D.formatPrice(p.price) + '</div>';
+    b.addEventListener('click', () => setVersion(p.id));
+    track.appendChild(b);
+  });
+
+  function setVersion(id) {
+    active = id;
+    const p = D.getProduct(id);
+    const idx = D.catalogue.indexOf(p);
+
+    track.querySelectorAll('.version-chip').forEach(c =>
+      c.classList.toggle('is-active', c.dataset.id === id));
+
+    document.title = 'Sillón ' + p.name + ' — LEGADO · Sillones para toda la vida';
+    document.getElementById('pp-no').textContent =
+      'Nº ' + String(idx + 1).padStart(2, '0') + ' / ' + String(D.catalogue.length).padStart(2, '0') + ' · ' + p.segment;
+    document.getElementById('pp-name').textContent = p.name;
+    document.getElementById('pp-blurb').textContent = p.blurb;
+    document.getElementById('pp-price').textContent = 'desde ' + D.formatPrice(p.price);
+    document.getElementById('pp-persona').textContent = 'Pensado para — ' + p.persona;
+    document.getElementById('pp-cta').textContent = 'Configurar el ' + p.name;
+    document.getElementById('pp-posture').textContent = p.posture;
+
+    // Galería — 3 vistas: ambiente, presencia humana parcial, detalle (§19)
+    const tones = galleryTones[p.id];
+    const slots = ['ambiente', 'persona', 'detalle'];
+    const applyPh = (ph, i, keepActive) => {
+      const wasActive = keepActive && ph.classList.contains('is-active');
+      ph.className = 'ph ph-' + tones[i] + (wasActive ? ' is-active' : '');
+      ph.dataset.img = 'assets/img/' + p.id + '-' + slots[i] + '.jpg';
+      ph.dataset.fit = 'pack';
+      ph.classList.remove('is-pack');
+      delete ph.dataset.imgLoaded;
+      const fill = ph.querySelector('.ph-fill');
+      if (fill) fill.style.backgroundImage = '';
+    };
+    document.querySelectorAll('.pp-gallery-main .ph').forEach((ph, i) => applyPh(ph, i, true));
+    document.querySelectorAll('.pp-thumb .ph').forEach((ph, i) => applyPh(ph, i, false));
+    if (window.legadoLoadImages) window.legadoLoadImages(document);
+
+    // Materiales (composición)
+    document.getElementById('pp-materials').innerHTML = p.composition.map((line, i) =>
+      '<div class="mat-row"><span class="mat-label">Cap. ' + String(i + 1).padStart(2, '0') + '</span><span>' + line + '</span></div>'
+    ).join('');
+
+    // Dimensiones
+    document.getElementById('pp-dims').innerHTML = Object.entries(p.dimensions).map(([k, v]) =>
+      '<div class="dim-row"><span class="dim-label">' + k + '</span><span class="dim-val">' + v + '</span></div>'
+    ).join('');
+
+    // Mecanismos disponibles
+    document.getElementById('pp-mecanismos').innerHTML = p.mecanismos.map(m =>
+      '<span class="cfg-chip" style="cursor:default">' + m + '</span>'
+    ).join('');
+
+    // Configurador
+    if (window.LegadoConfigurador && window.LegadoConfigurador.scene) {
+      window.LegadoConfigurador.setModel(id);
+    }
+
+    history.replaceState(null, '', 'producto.html?modelo=' + id);
+  }
+
+  // Acabados (estático, los 4 tapizados)
+  document.getElementById('pp-acabados').innerHTML = D.materiales.map(m =>
+    '<div class="acabado">' +
+    '  <div class="acabado-name">' + m.label + '</div>' +
+    '  <div class="acabado-origen">' + m.origen + '</div>' +
+    '  <div class="acabado-desc">' + m.desc + '</div>' +
+    '  <div class="acabado-dots">' + m.colores.map(c =>
+         '<span class="acabado-dot" style="background:' + c.hex + '" title="' + c.label + '"></span>').join('') +
+    '  </div>' +
+    '</div>'
+  ).join('');
+
+  setVersion(active);
+  window.LegadoConfigurador.init({ stage: '#cfg-stage', panel: '#cfg-panel', model: active });
+})();
+</script>
+</body>
+</html>

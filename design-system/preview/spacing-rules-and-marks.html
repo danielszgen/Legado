@@ -1,0 +1,23 @@
+<!doctype html>
+<!-- @dsCard group="Spacing" name="Reglas y marcas de página" subtitle="Rule latón · crucetas en esquinas" viewport="700x280" -->
+<html lang="es"><head>
+<meta charset="utf-8">
+<link rel="stylesheet" href="../colors_and_type.css">
+<style>
+  html,body{margin:0;padding:0;}
+  .card{padding:24px 28px;min-height:100%;}
+  
+  .blk{padding:14px 16px;background:#FAF6EF;border:.5px solid #E2D4B2;border-radius:3px;position:relative}
+  .blk + .blk{margin-top:14px}
+  .meta{font-family:var(--font-sans);font-size:10px;letter-spacing:.22em;text-transform:uppercase;color:var(--fg3);margin-bottom:8px}
+  hr.laton{border:0;border-top:.5px solid #C9A86A;margin:0}
+  hr.cuero{border:0;border-top:.5px solid #6E4E32;margin:0}
+  .page-marks{height:80px;border:none;display:flex;align-items:center;justify-content:center;font-family:var(--font-display);font-style:italic;color:var(--fg2);font-size:18px}
+  .cross::before,.cross::after{content:"";position:absolute;width:10px;height:10px;background:linear-gradient(#8A6A4A,#8A6A4A) center/100% .5px no-repeat,linear-gradient(#8A6A4A,#8A6A4A) center/.5px 100% no-repeat;opacity:.7}
+  .cross::before{top:6px;left:6px} .cross::after{bottom:6px;right:6px}
+
+</style></head><body><div class="card">
+  <div class="blk"><div class="meta">Rule fina · latón · 0.5 pt</div><hr class="laton"></div>
+  <div class="blk"><div class="meta">Rule estructural · cuero</div><hr class="cuero"></div>
+  <div class="blk cross page-marks"><div class="meta" style="position:absolute;top:8px;left:50%;transform:translateX(-50%);margin:0">Marcas de página · crucetas</div>página</div>
+</div></body></html>

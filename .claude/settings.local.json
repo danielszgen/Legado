@@ -1,0 +1,8 @@
+{
+  "permissions": {
+    "allow": [
+      "WebFetch(domain:mohermobiliario.com)",
+      "PowerShell($root = \"C:\\\\Users\\\\dloza\\\\Documents\\\\Daniels project\\\\Stimulo\\\\Butaques\\\\legado-web\"; $ds = \"C:\\\\Users\\\\dloza\\\\Documents\\\\Daniels project\\\\Stimulo\\\\Butaques\\\\legado-design-system\"; New-Item -ItemType Directory -Force \"$root\\\\assets\\\\css\",\"$root\\\\assets\\\\js\",\"$root\\\\assets\\\\img\",\"$root\\\\assets\\\\fonts\" | Out-Null; $fonts = @\\(\"CormorantGaramond-Light.ttf\",\"CormorantGaramond-LightItalic.ttf\",\"CormorantGaramond-Regular.ttf\",\"CormorantGaramond-Italic.ttf\",\"CormorantGaramond-Medium.ttf\",\"CormorantGaramond-MediumItalic.ttf\",\"CormorantGaramond-SemiBold.ttf\",\"CormorantGaramond-Bold.ttf\",\"Inter-Regular.otf\",\"Inter-Italic.otf\",\"Inter-Medium.otf\",\"Inter-SemiBold.otf\",\"Inter-Bold.otf\"\\); foreach\\($f in $fonts\\){ Copy-Item \"$ds\\\\fonts\\\\$f\" \"$root\\\\assets\\\\fonts\\\\$f\" -Force }; Copy-Item \"$ds\\\\assets\\\\logo-seal.jpg\" \"$root\\\\assets\\\\img\\\\logo-seal.jpg\" -Force; Get-ChildItem -Recurse $root | Select-Object -ExpandProperty FullName)"
+    ]
+  }
+}

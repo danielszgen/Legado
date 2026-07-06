@@ -1,0 +1,1662 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<title>LEGADO · Brandbook v2.0 · 2026</title>
+<link rel="stylesheet" href="../colors_and_type.css">
+<style>
+  :root {
+    --slide-pad-x: 96px;
+    --slide-pad-y: 80px;
+  }
+
+  html, body { background: #0E0B08; margin: 0; }
+
+  deck-stage {
+    --deck-bg: #0E0B08;
+  }
+
+  /* ====== Slide base ====== */
+  section {
+    /* deck-stage forces 1920x1080 on direct children */
+    box-sizing: border-box;
+    background: var(--ebano);
+    color: var(--marfil);
+    padding: var(--slide-pad-y) var(--slide-pad-x);
+    position: relative;
+    overflow: hidden;
+    font-family: var(--font-sans);
+  }
+
+  /* page-marks corners */
+  section::before, section::after,
+  section .pm-tr, section .pm-bl, section .pm-br {
+    content: "";
+    position: absolute;
+    width: 18px; height: 18px;
+    pointer-events: none;
+    background:
+      linear-gradient(rgba(201,168,106,0.45), rgba(201,168,106,0.45)) center/100% 0.6px no-repeat,
+      linear-gradient(rgba(201,168,106,0.45), rgba(201,168,106,0.45)) center/0.6px 100% no-repeat;
+  }
+  section::before { top: 28px; left: 28px; }
+  section::after  { top: 28px; right: 28px; }
+  section .pm-bl  { position: absolute; bottom: 28px; left: 28px; }
+  section .pm-br  { position: absolute; bottom: 28px; right: 28px; }
+
+  /* slide footer ribbon */
+  .ribbon {
+    position: absolute;
+    left: var(--slide-pad-x); right: var(--slide-pad-x);
+    bottom: 36px;
+    display: flex; justify-content: space-between; align-items: center;
+    font-family: var(--font-sans);
+    font-size: 11.5px;
+    letter-spacing: 0.32em;
+    text-transform: uppercase;
+    color: rgba(201,168,106,0.55);
+    font-variant-numeric: tabular-nums;
+  }
+  .ribbon .wm {
+    font-family: var(--font-display);
+    font-style: normal;
+    font-weight: 500;
+    text-transform: none;
+    letter-spacing: 0.32em;
+    font-size: 14px;
+    color: rgba(201,168,106,0.75);
+  }
+
+  /* slide top eyebrow */
+  .eyebrow {
+    font-family: var(--font-sans);
+    font-size: 12px;
+    font-weight: 500;
+    letter-spacing: 0.36em;
+    text-transform: uppercase;
+    color: var(--dorado);
+  }
+
+  /* big editorial titles */
+  h1.title {
+    font-family: var(--font-display);
+    font-weight: 500;
+    font-size: 124px;
+    line-height: 0.94;
+    letter-spacing: -0.022em;
+    color: var(--marfil);
+    margin: 18px 0 0;
+    max-width: 22ch;
+  }
+  h1.title em { font-style: italic; color: var(--dorado); }
+
+  h2.subtitle {
+    font-family: var(--font-display);
+    font-weight: 500;
+    font-size: 64px;
+    line-height: 1.02;
+    letter-spacing: -0.018em;
+    color: var(--marfil);
+    margin: 0;
+    max-width: 22ch;
+  }
+  h2.subtitle em { font-style: italic; color: var(--dorado); }
+
+  h3.kicker {
+    font-family: var(--font-display);
+    font-weight: 500;
+    font-size: 40px;
+    line-height: 1.05;
+    color: var(--marfil);
+    margin: 0;
+    letter-spacing: -0.012em;
+  }
+  h3.kicker em { font-style: italic; color: var(--dorado); }
+
+  .lede {
+    font-family: var(--font-serif-text);
+    font-style: italic;
+    font-size: 26px;
+    line-height: 1.45;
+    color: rgba(244,239,230,0.85);
+    max-width: 38ch;
+  }
+
+  .body {
+    font-family: var(--font-serif-text);
+    font-size: 19px;
+    line-height: 1.6;
+    color: rgba(244,239,230,0.82);
+    max-width: 56ch;
+  }
+
+  .small-label {
+    font-family: var(--font-sans);
+    font-size: 11px;
+    font-weight: 500;
+    letter-spacing: 0.28em;
+    text-transform: uppercase;
+    color: var(--dorado);
+  }
+
+  hr.laton {
+    border: 0;
+    border-top: 0.5px solid var(--dorado);
+    margin: 0;
+  }
+  hr.hair {
+    border: 0;
+    border-top: 0.5px solid rgba(201,168,106,0.22);
+    margin: 0;
+  }
+
+  /* ============================================================
+     Seal goldify — recolor the logo bitmap to dorado-on-ébano
+     ============================================================ */
+  .seal-img {
+    filter: url(#goldify) blur(0.35px);
+    mix-blend-mode: screen;
+    opacity: 0.95;
+    display: block;
+    border-radius: 50%;
+  }
+  .seal-glow {
+    position: relative;
+  }
+  .seal-glow::after {
+    content: "";
+    position: absolute; inset: -8%;
+    background: radial-gradient(circle at 38% 30%, rgba(201,168,106,0.18) 0%, transparent 55%);
+    pointer-events: none;
+    mix-blend-mode: screen;
+  }
+
+  /* ============================================================
+     Slide 01 · Cover
+     ============================================================ */
+  .cover {
+    display: grid;
+    grid-template-rows: 1fr auto 1fr;
+    align-items: center;
+    text-align: center;
+  }
+  .cover .top { display: flex; justify-content: center; align-items: flex-end; }
+  .cover .seal-wrap { width: 380px; aspect-ratio: 1/1; position: relative; }
+  .cover .center { padding: 36px 0; }
+  .cover .wordmark {
+    font-family: var(--font-display);
+    font-weight: 500;
+    font-size: 96px;
+    letter-spacing: 0.42em;
+    color: var(--marfil);
+    text-transform: uppercase;
+    margin: 0;
+  }
+  .cover .claim {
+    margin-top: 22px;
+    font-family: var(--font-display);
+    font-style: italic;
+    font-size: 36px;
+    color: var(--dorado);
+    letter-spacing: 0.04em;
+  }
+  .cover .meta {
+    display: flex; justify-content: space-between; align-items: flex-end;
+    width: 100%;
+    padding-bottom: 40px;
+  }
+  .cover .meta > div {
+    font-family: var(--font-sans);
+    font-size: 12px;
+    letter-spacing: 0.34em;
+    text-transform: uppercase;
+    color: rgba(201,168,106,0.55);
+    text-align: left;
+  }
+  .cover .meta > div:last-child { text-align: right; }
+  .cover .meta b { color: var(--dorado); font-weight: 500; display: block; margin-bottom: 6px; }
+
+  /* ============================================================
+     Two-column layout helpers
+     ============================================================ */
+  .two-col {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 96px;
+    height: 100%;
+    align-items: center;
+  }
+  .two-col.start { align-items: start; padding-top: 60px; }
+  .header-row {
+    display: flex; justify-content: space-between; align-items: baseline;
+    margin-bottom: 60px;
+  }
+  .full {
+    display: flex; flex-direction: column;
+    height: 100%;
+  }
+  .full .body-content { flex: 1; display: flex; align-items: center; }
+
+  /* ============================================================
+     Slide 02 · Idea madre
+     ============================================================ */
+  .idea-quote {
+    font-family: var(--font-display);
+    font-size: 132px;
+    line-height: 0.96;
+    letter-spacing: -0.025em;
+    color: var(--marfil);
+    margin: 0;
+    max-width: 14ch;
+  }
+  .idea-quote em { font-style: italic; color: var(--dorado); }
+
+  /* ============================================================
+     Slide 03 · Manifiesto
+     ============================================================ */
+  .manifest-grid {
+    display: grid; grid-template-columns: 0.7fr 1fr;
+    gap: 96px; align-items: start;
+    padding-top: 80px;
+  }
+  .manifest-list {
+    display: flex; flex-direction: column; gap: 18px;
+  }
+  .manifest-list .line {
+    font-family: var(--font-serif-text);
+    font-size: 22px; line-height: 1.5;
+    color: rgba(244,239,230,0.9);
+    padding-left: 28px;
+    position: relative;
+  }
+  .manifest-list .line::before {
+    content: ""; position: absolute;
+    left: 0; top: 14px;
+    width: 16px; border-top: 0.5px solid var(--dorado);
+  }
+
+  /* ============================================================
+     Slide 04 · Cliente arquetipo · Elena
+     ============================================================ */
+  .archetype-grid {
+    display: grid; grid-template-columns: 0.85fr 1fr;
+    gap: 80px; align-items: center;
+  }
+  .portrait {
+    aspect-ratio: 4/5;
+    background:
+      radial-gradient(ellipse at 30% 25%, rgba(201,168,106,0.32) 0%, transparent 50%),
+      radial-gradient(ellipse at 70% 75%, rgba(110,78,50,0.55) 0%, transparent 60%),
+      linear-gradient(180deg, #3A2616 0%, #1A1410 100%);
+    position: relative;
+    border: 0.5px solid rgba(201,168,106,0.25);
+  }
+  .portrait .tag {
+    position: absolute; top: 24px; left: 24px;
+    font-family: var(--font-sans);
+    font-size: 11px;
+    letter-spacing: 0.32em;
+    text-transform: uppercase;
+    color: var(--dorado);
+  }
+  .portrait .caption {
+    position: absolute; left: 24px; bottom: 24px;
+    font-family: var(--font-display);
+    font-style: italic;
+    font-size: 22px;
+    color: rgba(244,239,230,0.85);
+  }
+  .archetype-info { display: flex; flex-direction: column; gap: 32px; }
+  .stats { display: grid; grid-template-columns: repeat(2, 1fr); gap: 28px; }
+  .stat-card { padding-top: 20px; border-top: 0.5px solid rgba(201,168,106,0.3); }
+  .stat-card .lbl {
+    font-family: var(--font-sans);
+    font-size: 10.5px; letter-spacing: 0.28em;
+    text-transform: uppercase; color: var(--dorado); margin-bottom: 8px;
+  }
+  .stat-card .val {
+    font-family: var(--font-serif-text);
+    font-size: 18px; color: var(--marfil); line-height: 1.4;
+  }
+
+  /* ============================================================
+     Slide 05 · Posicionamiento — quadrant map
+     ============================================================ */
+  .pos-map {
+    position: relative;
+    width: 100%;
+    aspect-ratio: 5/3.2;
+    margin-top: 30px;
+    border: 0.5px solid rgba(201,168,106,0.18);
+  }
+  .pos-map::before, .pos-map::after {
+    content: ""; position: absolute;
+    background: rgba(201,168,106,0.18);
+  }
+  .pos-map::before { left: 0; right: 0; top: 50%; height: 0.5px; }
+  .pos-map::after  { top: 0; bottom: 0; left: 50%; width: 0.5px; }
+
+  .axis-l, .axis-r, .axis-t, .axis-b {
+    position: absolute;
+    font-family: var(--font-sans);
+    font-size: 11px;
+    letter-spacing: 0.32em;
+    text-transform: uppercase;
+    color: var(--dorado);
+  }
+  .axis-l { top: 50%; left: -28px; transform: translateY(-50%) rotate(-90deg); transform-origin: left center; white-space: nowrap; }
+  .axis-r { top: 50%; right: -28px; transform: translateY(-50%) rotate(90deg); transform-origin: right center; white-space: nowrap; }
+  .axis-t { top: -28px; left: 50%; transform: translateX(-50%); }
+  .axis-b { bottom: -28px; left: 50%; transform: translateX(-50%); }
+
+  .dot {
+    position: absolute;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    font-family: var(--font-sans);
+    font-size: 13px;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: rgba(244,239,230,0.55);
+    white-space: nowrap;
+  }
+  .dot::before {
+    content: ""; display: block;
+    width: 5px; height: 5px;
+    border-radius: 50%;
+    background: rgba(244,239,230,0.4);
+    margin: 0 auto 8px;
+  }
+  .dot.legado {
+    color: var(--dorado);
+    font-weight: 500;
+    letter-spacing: 0.24em;
+    font-size: 16px;
+  }
+  .dot.legado::before {
+    background: var(--dorado);
+    width: 10px; height: 10px;
+    box-shadow: 0 0 0 4px rgba(201,168,106,0.18);
+  }
+
+  /* ============================================================
+     Slide 06 · Personalidad
+     ============================================================ */
+  .pers-grid {
+    display: grid; grid-template-columns: repeat(4, 1fr);
+    column-gap: 32px; row-gap: 40px;
+    margin-top: 40px;
+  }
+  .pers-cell {
+    padding-top: 22px;
+    border-top: 0.5px solid var(--dorado);
+  }
+  .pers-cell .yes {
+    font-family: var(--font-display);
+    font-weight: 500;
+    font-size: 44px;
+    color: var(--marfil);
+    line-height: 1;
+    letter-spacing: -0.012em;
+  }
+  .pers-cell .no {
+    margin-top: 14px;
+    font-family: var(--font-sans);
+    font-size: 12px;
+    letter-spacing: 0.28em;
+    text-transform: uppercase;
+    color: rgba(201,168,106,0.6);
+  }
+  .pers-cell .no::before { content: "no "; opacity: 0.55; }
+
+  /* ============================================================
+     Slide 07 · Tono + Sí/No
+     ============================================================ */
+  .tone-grid {
+    display: grid; grid-template-columns: 1fr 1fr;
+    gap: 96px;
+    padding-top: 50px;
+  }
+  .tone-col h4 {
+    font-family: var(--font-sans);
+    font-size: 12px;
+    font-weight: 500;
+    letter-spacing: 0.32em;
+    text-transform: uppercase;
+    color: var(--dorado);
+    margin: 0 0 22px;
+  }
+  .tone-list { display: flex; flex-direction: column; gap: 0; }
+  .tone-list .row {
+    padding: 14px 0;
+    border-top: 0.5px solid rgba(201,168,106,0.2);
+    font-family: var(--font-serif-text);
+    font-size: 17.5px;
+    line-height: 1.4;
+    color: rgba(244,239,230,0.88);
+    display: flex; gap: 12px;
+  }
+  .tone-list .row .mark {
+    flex-shrink: 0; width: 18px;
+    font-family: var(--font-display);
+    font-style: italic;
+    color: var(--dorado);
+  }
+  .tone-list .row.no .mark { color: rgba(244,239,230,0.4); font-style: normal; }
+  .canon {
+    margin-top: 56px;
+    padding: 32px 36px;
+    border: 0.5px solid var(--dorado);
+    max-width: 720px;
+  }
+  .canon .q {
+    font-family: var(--font-display);
+    font-style: italic;
+    font-size: 26px;
+    line-height: 1.35;
+    color: var(--marfil);
+  }
+  .canon .a {
+    margin-top: 14px;
+    font-family: var(--font-sans);
+    font-size: 11px;
+    letter-spacing: 0.28em;
+    text-transform: uppercase;
+    color: var(--dorado);
+  }
+
+  /* ============================================================
+     Slide 08 · El sello — variants
+     ============================================================ */
+  .seals-grid {
+    display: grid; grid-template-columns: repeat(4, 1fr);
+    gap: 48px; align-items: end;
+    padding-top: 60px;
+  }
+  .seal-variant {
+    display: flex; flex-direction: column; align-items: center;
+    text-align: center; gap: 22px;
+  }
+  .seal-variant .frame {
+    width: 100%; aspect-ratio: 1/1;
+    display: grid; place-items: center;
+    padding: 14%;
+  }
+  .seal-variant.cocoa .frame { background: #F4EFE6; }
+  .seal-variant.brass .frame { background: #1A1410; }
+  .seal-variant.cream .frame { background: #4A3220; }
+  .seal-variant.mono  .frame { background: #1A1410; }
+  .seal-variant .lbl {
+    font-family: var(--font-sans);
+    font-size: 11px;
+    letter-spacing: 0.28em;
+    text-transform: uppercase;
+    color: var(--dorado);
+  }
+  .seal-variant .lbl em {
+    display: block; font-style: italic; text-transform: none;
+    letter-spacing: 0; color: rgba(244,239,230,0.55);
+    font-family: var(--font-serif-text); font-size: 13px; margin-top: 4px;
+  }
+  .seal-variant .seal-img { width: 100%; height: 100%; filter: none; mix-blend-mode: normal; opacity: 1; }
+  .seal-variant.brass .seal-img,
+  .seal-variant.cream .seal-img { filter: url(#goldify) blur(0.35px); mix-blend-mode: screen; opacity: 0.95; }
+  .seal-variant.cream .frame .seal-img { /* slightly different gold cast on chocolate */ }
+  .seal-variant.mono .mono-lg {
+    width: 60%; aspect-ratio: 1/1;
+    border-radius: 50%;
+    border: 1px solid var(--dorado);
+    display: grid; place-items: center;
+    color: var(--dorado);
+    font-family: var(--font-display);
+    font-style: italic;
+    font-size: 100px;
+    line-height: 1;
+    letter-spacing: -0.04em;
+    position: relative;
+  }
+  .seal-variant.mono .mono-lg::after {
+    content: ""; position: absolute; inset: 10%;
+    border-radius: 50%;
+    border: 0.5px solid var(--dorado);
+    opacity: 0.5;
+  }
+
+  /* ============================================================
+     Slide 09 · Paleta cromática
+     ============================================================ */
+  .palette {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    gap: 14px;
+    margin-top: 60px;
+    height: 540px;
+  }
+  .sw {
+    position: relative;
+    border-radius: 2px;
+    overflow: hidden;
+    display: flex; flex-direction: column;
+    justify-content: space-between;
+    padding: 22px 18px;
+  }
+  .sw .name {
+    font-family: var(--font-display);
+    font-weight: 500;
+    font-size: 26px;
+    line-height: 1;
+  }
+  .sw .hex {
+    font-family: var(--font-sans);
+    font-size: 11px;
+    letter-spacing: 0.18em;
+    font-variant-numeric: tabular-nums;
+  }
+  .sw .role {
+    font-family: var(--font-serif-text);
+    font-style: italic;
+    font-size: 14px;
+    line-height: 1.4;
+    opacity: 0.78;
+  }
+
+  /* ============================================================
+     Slide 10 · Color en uso · 3 combos
+     ============================================================ */
+  .combos {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 36px;
+    margin-top: 50px;
+    height: 580px;
+  }
+  .combo {
+    display: flex; flex-direction: column;
+    gap: 14px;
+  }
+  .combo .bars {
+    display: flex; flex: 1;
+    border-radius: 2px; overflow: hidden;
+  }
+  .combo .bars > div {
+    display: flex; align-items: flex-end;
+    padding: 18px;
+    font-family: var(--font-sans);
+    font-size: 11px;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+  }
+  .combo .meta {
+    display: flex; justify-content: space-between; align-items: baseline;
+    padding-top: 8px;
+  }
+  .combo .meta .t {
+    font-family: var(--font-display);
+    font-weight: 500;
+    font-size: 22px;
+    color: var(--marfil);
+  }
+  .combo .meta .pct {
+    font-family: var(--font-sans);
+    font-size: 11px;
+    letter-spacing: 0.24em;
+    text-transform: uppercase;
+    color: var(--dorado);
+    font-variant-numeric: tabular-nums;
+  }
+  .combo .desc {
+    font-family: var(--font-serif-text);
+    font-style: italic;
+    font-size: 15px;
+    line-height: 1.5;
+    color: rgba(244,239,230,0.7);
+  }
+
+  /* ============================================================
+     Slide 11 · Tipografía
+     ============================================================ */
+  .typo-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 96px;
+    padding-top: 50px;
+  }
+  .typo-col .role {
+    font-family: var(--font-sans);
+    font-size: 11px;
+    font-weight: 500;
+    letter-spacing: 0.32em;
+    text-transform: uppercase;
+    color: var(--dorado);
+    padding-bottom: 18px;
+    border-bottom: 0.5px solid var(--dorado);
+    margin-bottom: 28px;
+  }
+  .typo-col .specimen {
+    font-family: var(--font-display);
+    font-weight: 500;
+    font-size: 200px;
+    line-height: 0.9;
+    color: var(--marfil);
+    margin: 0;
+    letter-spacing: -0.025em;
+  }
+  .typo-col.sans .specimen {
+    font-family: var(--font-sans);
+    font-weight: 500;
+    letter-spacing: -0.035em;
+  }
+  .typo-col .demo {
+    margin-top: 32px;
+    font-family: var(--font-display);
+    font-style: italic;
+    font-size: 28px;
+    line-height: 1.35;
+    color: rgba(244,239,230,0.85);
+  }
+  .typo-col.sans .demo {
+    font-family: var(--font-sans);
+    font-style: normal;
+    font-size: 13px;
+    font-weight: 500;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: rgba(244,239,230,0.78);
+  }
+  .typo-col .meta {
+    margin-top: 32px;
+    font-family: var(--font-sans);
+    font-size: 11px;
+    letter-spacing: 0.24em;
+    text-transform: uppercase;
+    color: var(--dorado);
+    line-height: 1.9;
+  }
+
+  /* ============================================================
+     Slide 12 · Estilo fotográfico
+     ============================================================ */
+  .photo-grid {
+    display: grid;
+    grid-template-columns: 1.4fr 1fr 1fr;
+    grid-template-rows: 1fr 1fr;
+    gap: 18px;
+    margin-top: 30px;
+    height: 600px;
+  }
+  .photo {
+    border-radius: 2px;
+    position: relative;
+    overflow: hidden;
+  }
+  .photo::after {
+    content: "";
+    position: absolute; inset: 0;
+    background: radial-gradient(ellipse at 60% 30%, transparent 40%, rgba(0,0,0,0.5) 100%);
+  }
+  .photo .lbl {
+    position: absolute; bottom: 14px; left: 16px; z-index: 2;
+    font-family: var(--font-sans);
+    font-size: 10.5px;
+    letter-spacing: 0.28em;
+    text-transform: uppercase;
+    color: rgba(244,239,230,0.85);
+  }
+  .photo .lbl em {
+    display: block; font-family: var(--font-display); font-style: italic;
+    text-transform: none; letter-spacing: 0;
+    font-size: 18px; color: var(--dorado); margin-bottom: 4px;
+  }
+  .photo.hero  { grid-row: 1 / 3; background: radial-gradient(ellipse at 70% 30%, #B68455 0%, #6E4E32 40%, #2A1C12 100%); }
+  .photo.det1  { background: radial-gradient(ellipse at 30% 20%, #B97540 0%, #6E4322 60%, #3A2616 100%); }
+  .photo.det2  { background: radial-gradient(ellipse at 50% 30%, #DCC8A6 0%, #B89466 50%, #7C5A38 100%); }
+  .photo.det3  { background: radial-gradient(ellipse at 70% 30%, #6E2620 0%, #3F1612 60%, #1A0908 100%); }
+  .photo.det4  { background: radial-gradient(ellipse at 30% 70%, #6E4E32 0%, #3A2616 70%, #1A1410 100%); }
+
+  /* ============================================================
+     Slide 13 · Texturas
+     ============================================================ */
+  .texturas-cat {
+    display: flex; flex-direction: column; gap: 38px;
+    margin-top: 50px;
+  }
+  .tex-group { display: grid; grid-template-columns: 200px 1fr; gap: 36px; align-items: center; }
+  .tex-group .ttl {
+    font-family: var(--font-display);
+    font-weight: 500;
+    font-size: 38px;
+    color: var(--marfil);
+    line-height: 1;
+  }
+  .tex-group .ttl em { font-style: italic; color: var(--dorado); display: block; font-size: 14px; font-family: var(--font-sans); letter-spacing: 0.28em; text-transform: uppercase; margin-top: 8px; }
+  .tex-row { display: grid; grid-template-columns: repeat(4, 1fr); gap: 14px; }
+  .tex-row .tile {
+    aspect-ratio: 16/9;
+    border-radius: 2px;
+    position: relative;
+    overflow: hidden;
+  }
+  .tex-row .tile .nm {
+    position: absolute; bottom: 10px; left: 14px;
+    font-family: var(--font-sans);
+    font-size: 10.5px;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    color: rgba(244,239,230,0.85);
+  }
+  .tex-row .tile::after { content: ""; position: absolute; inset: 0; background: radial-gradient(ellipse at 50% 40%, transparent 40%, rgba(0,0,0,0.4) 100%); }
+
+  /* ============================================================
+     Slide 14 · Sistema visual
+     ============================================================ */
+  .sys-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 48px;
+    margin-top: 50px;
+  }
+  .sys-card {
+    padding: 32px;
+    border: 0.5px solid rgba(201,168,106,0.25);
+    background: rgba(74,50,32,0.18);
+    min-height: 320px;
+    display: flex; flex-direction: column; gap: 18px;
+  }
+  .sys-card .n {
+    font-family: var(--font-sans);
+    font-size: 11px;
+    letter-spacing: 0.32em;
+    color: var(--dorado);
+    font-variant-numeric: tabular-nums;
+  }
+  .sys-card .t {
+    font-family: var(--font-display);
+    font-weight: 500;
+    font-size: 32px;
+    color: var(--marfil);
+    line-height: 1.05;
+    letter-spacing: -0.012em;
+  }
+  .sys-card .d {
+    font-family: var(--font-serif-text);
+    font-size: 16px;
+    line-height: 1.55;
+    color: rgba(244,239,230,0.75);
+  }
+  .sys-card .demo {
+    margin-top: auto;
+    padding-top: 18px;
+    border-top: 0.5px solid rgba(201,168,106,0.25);
+  }
+  .demo-rule { border-top: 0.5px solid var(--dorado); margin-top: 8px; }
+  .demo-rule-thick { border-top: 1px solid var(--cuero); margin-top: 8px; }
+  .demo-no {
+    font-family: var(--font-sans);
+    font-size: 16px;
+    letter-spacing: 0.34em;
+    color: rgba(201,168,106,0.7);
+    font-variant-numeric: tabular-nums;
+  }
+  .demo-cap::first-letter {
+    font-family: var(--font-display);
+    font-style: italic;
+    color: var(--dorado);
+    font-size: 3.2em;
+    line-height: 0.85;
+    float: left;
+    padding: 0.05em 0.12em 0 0;
+  }
+  .demo-cap {
+    font-family: var(--font-serif-text);
+    font-size: 14px; line-height: 1.5;
+    color: rgba(244,239,230,0.8);
+  }
+
+  /* ============================================================
+     Slide 15 · Claims y headlines (curated)
+     ============================================================ */
+  .claims-list {
+    display: flex; flex-direction: column;
+    gap: 0;
+    margin-top: 40px;
+  }
+  .claim-row {
+    display: grid; grid-template-columns: 80px 1fr;
+    gap: 32px;
+    padding: 36px 0;
+    border-top: 0.5px solid rgba(201,168,106,0.22);
+    align-items: baseline;
+  }
+  .claim-row:first-child { border-top: none; }
+  .claim-row .n {
+    font-family: var(--font-sans);
+    font-size: 13px;
+    letter-spacing: 0.32em;
+    text-transform: uppercase;
+    color: var(--dorado);
+    font-variant-numeric: tabular-nums;
+  }
+  .claim-row .t {
+    font-family: var(--font-display);
+    font-weight: 500;
+    font-size: 44px;
+    line-height: 1.1;
+    color: var(--marfil);
+    letter-spacing: -0.014em;
+  }
+  .claim-row .t em { font-style: italic; color: var(--dorado); }
+
+  /* ============================================================
+     Slide 16 · Modelos hero (Baltic / Nordic / Venus)
+     ============================================================ */
+  .models {
+    display: grid; grid-template-columns: repeat(3, 1fr);
+    gap: 36px; margin-top: 40px;
+    height: 640px;
+  }
+  .model {
+    display: flex; flex-direction: column;
+  }
+  .model .img {
+    flex: 1; border-radius: 2px;
+    position: relative; overflow: hidden;
+  }
+  .model .img::after {
+    content: ""; position: absolute; inset: 0;
+    background: radial-gradient(ellipse at 50% 60%, transparent 30%, rgba(0,0,0,0.45) 100%);
+  }
+  .model .img.baltic { background: radial-gradient(ellipse at 30% 20%, #B97540 0%, #6E4322 60%, #3A2616 100%); }
+  .model .img.nordic { background: radial-gradient(ellipse at 50% 30%, #DCC8A6 0%, #B89466 50%, #7C5A38 100%); }
+  .model .img.venus  { background: radial-gradient(ellipse at 30% 30%, #E6D6B8 0%, #C9A07A 60%, #8A6446 100%); }
+  .model .img .n {
+    position: absolute; top: 18px; right: 22px;
+    font-family: var(--font-sans);
+    font-size: 11px;
+    letter-spacing: 0.28em;
+    color: rgba(244,239,230,0.7);
+    font-variant-numeric: tabular-nums;
+  }
+  .model .info {
+    padding-top: 22px;
+    display: flex; justify-content: space-between; align-items: baseline; gap: 14px;
+  }
+  .model .info .nm {
+    font-family: var(--font-display);
+    font-weight: 500;
+    font-size: 44px;
+    line-height: 1;
+    color: var(--marfil);
+    letter-spacing: -0.014em;
+  }
+  .model .info .mat {
+    margin-top: 6px;
+    font-family: var(--font-sans);
+    font-size: 11px;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    color: var(--dorado);
+  }
+  .model .info .price {
+    font-family: var(--font-sans);
+    font-size: 18px;
+    color: var(--marfil);
+    font-variant-numeric: tabular-nums;
+  }
+
+  /* ============================================================
+     Slide 17 · Aplicaciones — web
+     ============================================================ */
+  .app-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 56px;
+    margin-top: 30px;
+    height: 660px;
+  }
+  .device {
+    background: var(--ebano);
+    border: 0.5px solid rgba(201,168,106,0.25);
+    border-radius: 4px;
+    position: relative;
+    overflow: hidden;
+    display: flex; flex-direction: column;
+  }
+  .device .browser {
+    height: 32px;
+    border-bottom: 0.5px solid rgba(201,168,106,0.18);
+    display: flex; align-items: center; padding: 0 14px;
+    gap: 12px;
+  }
+  .browser .dots {
+    display: flex; gap: 6px;
+  }
+  .browser .dots span {
+    width: 8px; height: 8px; border-radius: 50%;
+    background: rgba(201,168,106,0.3);
+  }
+  .browser .url {
+    font-family: var(--font-sans);
+    font-size: 10px;
+    letter-spacing: 0.14em;
+    color: rgba(244,239,230,0.5);
+  }
+  .device .nav-mini {
+    padding: 16px 28px;
+    border-bottom: 0.5px solid rgba(201,168,106,0.18);
+    display: flex; justify-content: space-between; align-items: center;
+  }
+  .nav-mini .left { display: flex; align-items: center; gap: 10px; }
+  .nav-mini .seal-mini {
+    width: 20px; height: 20px;
+    border-radius: 50%; border: 0.5px solid var(--dorado);
+    color: var(--dorado);
+    display: grid; place-items: center;
+    font-family: var(--font-display);
+    font-style: italic;
+    font-size: 11px;
+    letter-spacing: -0.04em;
+  }
+  .nav-mini .wm {
+    font-family: var(--font-display);
+    font-size: 12px; letter-spacing: 0.32em;
+    color: var(--marfil); text-transform: uppercase;
+  }
+  .nav-mini .links {
+    display: flex; gap: 20px;
+    font-family: var(--font-sans);
+    font-size: 9px; font-weight: 500;
+    letter-spacing: 0.18em; text-transform: uppercase;
+    color: rgba(244,239,230,0.75);
+  }
+  .device .hero-mini {
+    flex: 1; padding: 28px;
+    display: grid; grid-template-columns: 1fr 1fr; gap: 24px; align-items: center;
+  }
+  .hero-mini .txt h4 {
+    font-family: var(--font-display);
+    font-weight: 500;
+    font-size: 40px;
+    line-height: 0.96;
+    color: var(--marfil);
+    letter-spacing: -0.018em;
+    margin: 0;
+  }
+  .hero-mini .txt h4 em { font-style: italic; color: var(--dorado); }
+  .hero-mini .txt .l {
+    margin-top: 14px;
+    font-family: var(--font-serif-text);
+    font-style: italic;
+    font-size: 12px;
+    color: rgba(244,239,230,0.7);
+    line-height: 1.45;
+  }
+  .hero-mini .txt .b {
+    display: inline-block; margin-top: 18px;
+    background: var(--dorado);
+    color: var(--ebano);
+    font-family: var(--font-sans);
+    font-size: 8.5px; font-weight: 700;
+    letter-spacing: 0.22em; text-transform: uppercase;
+    padding: 8px 14px;
+  }
+  .hero-mini .pic {
+    aspect-ratio: 4/5;
+    background: radial-gradient(ellipse at 70% 30%, #B68455 0%, #6E4E32 40%, #2A1C12 100%);
+    border-radius: 2px;
+  }
+
+  /* The packaging/tag card */
+  .pkg {
+    background: linear-gradient(180deg, #6E4E32 0%, #4A3220 100%);
+    border-radius: 4px;
+    position: relative; overflow: hidden;
+    display: flex; flex-direction: column;
+    align-items: center; justify-content: center;
+    gap: 22px;
+    padding: 40px;
+  }
+  .pkg .crate {
+    width: 70%; height: 60%;
+    background: linear-gradient(180deg, #8E6440 0%, #5C3F26 100%);
+    border-radius: 2px;
+    position: relative;
+    box-shadow: 0 30px 80px -20px rgba(0,0,0,0.6);
+  }
+  .pkg .crate .seal-on-box {
+    position: absolute; top: 50%; left: 50%; transform: translate(-50%,-50%);
+    width: 38%; aspect-ratio: 1/1;
+  }
+  .pkg .crate .wm {
+    position: absolute; bottom: -40px; left: 50%; transform: translateX(-50%);
+    font-family: var(--font-display);
+    font-size: 18px; letter-spacing: 0.5em;
+    color: var(--dorado); text-transform: uppercase;
+    white-space: nowrap;
+  }
+  .pkg .footer {
+    font-family: var(--font-sans);
+    font-size: 11px; letter-spacing: 0.28em;
+    text-transform: uppercase; color: var(--dorado);
+    margin-top: 40px;
+  }
+
+  /* ============================================================
+     Slide 18 · Cierre
+     ============================================================ */
+  .closing {
+    display: grid;
+    grid-template-rows: 1fr auto 1fr;
+    text-align: center;
+    align-items: center;
+    height: 100%;
+  }
+  .closing .center { display: flex; flex-direction: column; align-items: center; gap: 32px; }
+  .closing .final-claim {
+    font-family: var(--font-display);
+    font-weight: 500;
+    font-size: 156px;
+    line-height: 0.94;
+    color: var(--marfil);
+    letter-spacing: -0.025em;
+  }
+  .closing .final-claim em { font-style: italic; color: var(--dorado); }
+  .closing .sign {
+    font-family: var(--font-sans);
+    font-size: 12px; letter-spacing: 0.34em;
+    text-transform: uppercase;
+    color: rgba(201,168,106,0.6);
+  }
+</style>
+
+<!-- Speaker notes — un guion conciso por slide -->
+<script type="application/json" id="speaker-notes">
+[
+  "Bienvenida. LEGADO. Sillones para toda la vida. Hecho para quedarse. Brandbook versión 2.0, año 2026. Documento interno y confidencial.",
+  "La idea madre. Una casa no se hace con tendencias. Se hace con los muebles que se quedan. Esa es la frase a la que volvemos cuando hay dudas.",
+  "Manifiesto. Diez creencias. Cinco aquí. Si tienes que tomar una decisión y no te encaja con estas frases, no es nuestra.",
+  "Cliente arquetipo. Elena, 48, Barcelona. Edita libros. Casa terminada. Compra pocas cosas, pero compra bien. No es target; es persona.",
+  "Posicionamiento. La parte alta del relax y la butaca premium, contada con lenguaje de mueble heredable. No competimos en precio. No competimos en lujo histórico italiano. Ocupamos un espacio que nadie defiende todavía.",
+  "Ocho pares de personalidad. Cada uno es un sí y un no. Cálido pero no almibarado. Editorial pero no publicitario. Si dudas del tono, vuelve aquí.",
+  "Tono de voz. Frases cortas, sin adornos. Primera persona del plural sin abusar. Concreto antes que abstracto. El ejemplo canónico: tres frases, cero adornos, una explicación, una promesa.",
+  "El sello. Cuatro variantes oficiales: cocoa sobre cream, brass sobre chocolate, cream sobre oscuro, y monograma LG. Aparece siempre, pero pequeño. El sello casi no se ve.",
+  "Paleta. Siete tonos. Cero blanco puro, cero negro absoluto. Todos cálidos. Eje principal: dorado sobre ébano.",
+  "Color en uso. Solo tres combinaciones aprobadas. Cualquier otra está fuera del sistema.",
+  "Tipografía. Dos voces. Cormorant Garamond para lo que el cliente recuerda. Inter para lo que el cliente necesita.",
+  "Estilo fotográfico. Casa real, luz de tarde. Hora dorada. Nunca cenital, nunca flash. La habitación contesta antes que el sillón.",
+  "Texturas. Tres familias: cueros, tejidos, maderas. Cada una con tres o cuatro rangos tonales. El latón siempre patinado.",
+  "Sistema visual. Seis elementos recurrentes que cosen todo: el sello, las marcas de página, la capitular en latón, la rule fina, la numeración por pares, y la composición asimétrica.",
+  "Claims y headlines. Cuatro frases curadas por el cliente. Se rotan por canales y momentos.",
+  "Modelos hero de la colección. Baltic, Nordic, Venus. Cada uno con su material, su precio y su postura. Pocas piezas, defendidas una a una.",
+  "Aplicaciones. La web es la única superficie de producto. El packaging es el primer contacto físico con la marca. Cartón kraft, sello en foil, cero adorno.",
+  "Cierre. Hecho para quedarse. Gracias."
+]
+</script>
+</head>
+<body>
+
+<!-- SVG goldify filter — used by all .seal-img elements -->
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <defs>
+    <filter id="goldify" color-interpolation-filters="sRGB">
+      <feColorMatrix type="matrix" values="
+        1 0 0 0 0
+        0 1 0 0 0
+        0 0 1 0 0
+        -3 -3 -3 0 2.4"/>
+      <feColorMatrix type="matrix" values="
+        0 0 0 0 0.788
+        0 0 0 0 0.659
+        0 0 0 0 0.416
+        0 0 0 1 0"/>
+      <feGaussianBlur stdDeviation="0.35"/>
+    </filter>
+  </defs>
+</svg>
+
+<deck-stage>
+
+  <!-- ============================================================
+       01 · COVER
+       ============================================================ -->
+  <section data-screen-label="01 Cover">
+    <div class="pm-bl"></div><div class="pm-br"></div>
+    <div class="cover">
+      <div class="top">
+        <div class="seal-wrap seal-glow">
+          <img class="seal-img" src="../assets/logo-seal.jpg" alt="LEGADO" style="width:100%;height:100%;">
+        </div>
+      </div>
+      <div class="center">
+        <h1 class="wordmark">Legado</h1>
+        <div class="claim">Sillones para toda la vida.</div>
+      </div>
+      <div class="meta">
+        <div><b>Brandbook</b>Versión 2.0 · 2026</div>
+        <div><b>Documento</b>Interno y confidencial</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       02 · IDEA MADRE
+       ============================================================ -->
+  <section data-screen-label="02 Idea madre">
+    <div class="pm-bl"></div><div class="pm-br"></div>
+    <div class="full">
+      <div class="eyebrow">— 01 · Idea madre</div>
+      <div class="body-content">
+        <h1 class="idea-quote">Una casa se hace<br>con los muebles<br>que <em>se quedan</em>.</h1>
+      </div>
+    </div>
+    <div class="ribbon"><span class="wm">Legado</span><span>02 / 18 · Idea madre</span></div>
+  </section>
+
+  <!-- ============================================================
+       03 · MANIFIESTO
+       ============================================================ -->
+  <section data-screen-label="03 Manifiesto">
+    <div class="pm-bl"></div><div class="pm-br"></div>
+    <div class="eyebrow">— 02 · Manifiesto</div>
+    <div class="manifest-grid">
+      <h2 class="subtitle">Lo contrario del lujo no es la sencillez.<br><em>Es la prisa.</em></h2>
+      <div class="manifest-list">
+        <div class="line">Creemos en las casas que se hacen despacio.</div>
+        <div class="line">Creemos que un sillón no es un mueble: es un sitio.</div>
+        <div class="line">Creemos que lo barato sale caro cuando se mide en años.</div>
+        <div class="line">Creemos que el reposo es un derecho de adulto, no un signo de cansancio.</div>
+        <div class="line">Creemos en la madera, el cuero y la lana antes que en los acabados que imitan.</div>
+        <div class="line">Creemos en la herencia: en muebles que pasen de unas manos a otras.</div>
+        <div class="line">Creemos en hacer pocas cosas. Y en hacerlas bien.</div>
+      </div>
+    </div>
+    <div class="ribbon"><span class="wm">Legado</span><span>03 / 18 · Manifiesto</span></div>
+  </section>
+
+  <!-- ============================================================
+       04 · CLIENTE ARQUETIPO
+       ============================================================ -->
+  <section data-screen-label="04 Cliente arquetipo">
+    <div class="pm-bl"></div><div class="pm-br"></div>
+    <div class="eyebrow">— 03 · Cliente arquetipo</div>
+    <div class="header-row">
+      <h2 class="subtitle">Elena, <em>48</em>.</h2>
+      <div class="small-label">Para quién hacemos esto</div>
+    </div>
+    <div class="archetype-grid">
+      <div class="portrait">
+        <div class="tag">Retrato · placeholder</div>
+        <div class="caption">«Compro pocas cosas,<br>pero compro bien.»</div>
+      </div>
+      <div class="archetype-info">
+        <p class="body">Barcelona. Edita libros. Vive con su pareja y un hijo. Ha terminado el piso del barrio donde quiere quedarse. Ya no se va a mudar más. Cada mueble que entra es una decisión meditada.</p>
+        <div class="stats">
+          <div class="stat-card"><div class="lbl">Busca</div><div class="val">Un objeto que dure veinte años sin parecer viejo.</div></div>
+          <div class="stat-card"><div class="lbl">Detesta</div><div class="val">Los descuentos agresivos y la presión de venta.</div></div>
+          <div class="stat-card"><div class="lbl">Lee</div><div class="val">Por las tardes. Música baja en casa.</div></div>
+          <div class="stat-card"><div class="lbl">Sabe</div><div class="val">La diferencia entre lino y mezcla.</div></div>
+        </div>
+      </div>
+    </div>
+    <div class="ribbon"><span class="wm">Legado</span><span>04 / 18 · Cliente arquetipo</span></div>
+  </section>
+
+  <!-- ============================================================
+       05 · POSICIONAMIENTO
+       ============================================================ -->
+  <section data-screen-label="05 Posicionamiento">
+    <div class="pm-bl"></div><div class="pm-br"></div>
+    <div class="eyebrow">— 04 · Posicionamiento</div>
+    <div class="header-row">
+      <h2 class="subtitle">Dónde estamos<br>en el <em>mapa</em>.</h2>
+      <p class="body" style="max-width:38ch;">La parte alta del relax y la butaca premium, contada con el lenguaje del mueble heredable. Un espacio que nadie defiende todavía en España.</p>
+    </div>
+    <div class="pos-map">
+      <span class="axis-l">↓ commodity · sin relato</span>
+      <span class="axis-r">premium · con relato ↑</span>
+      <span class="axis-t">← decorativo · funcional →</span>
+      <span class="dot" style="left:18%; top:78%;">IKEA</span>
+      <span class="dot" style="left:32%; top:64%;">Maisons du Monde</span>
+      <span class="dot" style="left:24%; top:50%;">Sklum · Kave</span>
+      <span class="dot" style="left:42%; top:74%;">Conforama</span>
+      <span class="dot" style="left:68%; top:80%;">Galerías Tresillo</span>
+      <span class="dot" style="left:88%; top:62%;">Ortopedias</span>
+      <span class="dot" style="left:78%; top:18%;">Poltrona Frau</span>
+      <span class="dot legado" style="left:62%; top:26%;">Legado</span>
+    </div>
+    <div class="ribbon"><span class="wm">Legado</span><span>05 / 18 · Posicionamiento</span></div>
+  </section>
+
+  <!-- ============================================================
+       06 · PERSONALIDAD
+       ============================================================ -->
+  <section data-screen-label="06 Personalidad">
+    <div class="pm-bl"></div><div class="pm-br"></div>
+    <div class="eyebrow">— 05 · Personalidad</div>
+    <div class="header-row" style="margin-bottom:20px;">
+      <h2 class="subtitle">Cómo nos <em>comportamos</em>.</h2>
+      <div class="small-label">Ocho pares</div>
+    </div>
+    <div class="pers-grid">
+      <div class="pers-cell"><div class="yes">Cálido</div><div class="no">almibarado</div></div>
+      <div class="pers-cell"><div class="yes">Editorial</div><div class="no">publicitario</div></div>
+      <div class="pers-cell"><div class="yes">Pausado</div><div class="no">aburrido</div></div>
+      <div class="pers-cell"><div class="yes">Adulto</div><div class="no">envejecido</div></div>
+      <div class="pers-cell"><div class="yes">Concreto</div><div class="no">técnico</div></div>
+      <div class="pers-cell"><div class="yes">Confiado</div><div class="no">arrogante</div></div>
+      <div class="pers-cell"><div class="yes">Atento</div><div class="no">servil</div></div>
+      <div class="pers-cell"><div class="yes">Honesto</div><div class="no">ingenuo</div></div>
+    </div>
+    <div class="ribbon"><span class="wm">Legado</span><span>06 / 18 · Personalidad</span></div>
+  </section>
+
+  <!-- ============================================================
+       07 · TONO + SÍ / NO
+       ============================================================ -->
+  <section data-screen-label="07 Tono de voz">
+    <div class="pm-bl"></div><div class="pm-br"></div>
+    <div class="eyebrow">— 06 · Tono de voz</div>
+    <div class="header-row" style="margin-bottom:0;">
+      <h2 class="subtitle">Cómo <em>escribimos</em>.</h2>
+      <div class="small-label">Sí · no</div>
+    </div>
+    <div class="tone-grid">
+      <div class="tone-col">
+        <h4>Sí</h4>
+        <div class="tone-list">
+          <div class="row"><span class="mark">·</span>Hablamos de duración, no de tendencia.</div>
+          <div class="row"><span class="mark">·</span>Detallamos materiales con nombre y origen.</div>
+          <div class="row"><span class="mark">·</span>Hablamos del cliente, no de nosotros.</div>
+          <div class="row"><span class="mark">·</span>Decimos cuándo un modelo no encaja.</div>
+          <div class="row"><span class="mark">·</span>Respondemos en menos de un día hábil.</div>
+        </div>
+      </div>
+      <div class="tone-col">
+        <h4>No</h4>
+        <div class="tone-list">
+          <div class="row no"><span class="mark">×</span>Urgencias, cuentas atrás, «stock limitado».</div>
+          <div class="row no"><span class="mark">×</span>«Mejor calidad-precio» o «al mejor precio».</div>
+          <div class="row no"><span class="mark">×</span>Prometer ergonomía con lenguaje médico.</div>
+          <div class="row no"><span class="mark">×</span>Emojis en comunicación oficial.</div>
+          <div class="row no"><span class="mark">×</span>Mostrar el sillón flotando en fondo blanco.</div>
+        </div>
+      </div>
+    </div>
+    <div class="canon">
+      <div class="q">«Lo hacemos cuando lo pides. Tarda cuatro semanas. Es así por una razón.»</div>
+      <div class="a">— Ejemplo canónico · tres frases, cero adornos</div>
+    </div>
+    <div class="ribbon"><span class="wm">Legado</span><span>07 / 18 · Tono de voz</span></div>
+  </section>
+
+  <!-- ============================================================
+       08 · EL SELLO
+       ============================================================ -->
+  <section data-screen-label="08 El sello">
+    <div class="pm-bl"></div><div class="pm-br"></div>
+    <div class="eyebrow">— 07 · Sistema de marca · el sello</div>
+    <div class="header-row" style="margin-bottom:0;">
+      <h2 class="subtitle">El <em>sello</em>.</h2>
+      <p class="body" style="max-width:36ch;">Anillo dentado, monograma central LG, leyenda perimetral. El ancla del sistema. Aparece siempre, pero pequeño.</p>
+    </div>
+    <div class="seals-grid">
+      <div class="seal-variant cocoa">
+        <div class="frame"><img class="seal-img" src="../assets/logo-seal.jpg" alt="Sello cocoa"></div>
+        <div class="lbl">Cocoa<em>sobre cream · uso principal</em></div>
+      </div>
+      <div class="seal-variant brass">
+        <div class="frame"><img class="seal-img" src="../assets/logo-seal.jpg" alt="Sello brass"></div>
+        <div class="lbl">Brass<em>foil dorado · cuero oscuro</em></div>
+      </div>
+      <div class="seal-variant cream">
+        <div class="frame"><img class="seal-img" src="../assets/logo-seal.jpg" alt="Sello cream"></div>
+        <div class="lbl">Cream<em>negativo · fondos oscuros</em></div>
+      </div>
+      <div class="seal-variant mono">
+        <div class="frame"><div class="mono-lg">LG</div></div>
+        <div class="lbl">Monograma<em>favicons · social · firma</em></div>
+      </div>
+    </div>
+    <div class="ribbon"><span class="wm">Legado</span><span>08 / 18 · El sello</span></div>
+  </section>
+
+  <!-- ============================================================
+       09 · PALETA
+       ============================================================ -->
+  <section data-screen-label="09 Paleta">
+    <div class="pm-bl"></div><div class="pm-br"></div>
+    <div class="eyebrow">— 08 · Identidad visual · paleta</div>
+    <div class="header-row" style="margin-bottom:0;">
+      <h2 class="subtitle">Siete <em>tonos</em>.</h2>
+      <p class="body" style="max-width:40ch;">Cero blanco puro, cero negro absoluto. Todos los colores son cálidos. Eje principal: dorado sobre ébano.</p>
+    </div>
+    <div class="palette">
+      <div class="sw" style="background:#F4EFE6; color:#4A3220;"><div><div class="name">Marfil</div><div class="hex">#F4EFE6</div></div><div class="role">Fondo claro. Sustituye al blanco.</div></div>
+      <div class="sw" style="background:#E8DDC8; color:#4A3220;"><div><div class="name">Beige</div><div class="hex">#E8DDC8</div></div><div class="role">Superficies claras secundarias.</div></div>
+      <div class="sw" style="background:#C9A07A; color:#1A1410;"><div><div class="name">Piel</div><div class="hex">#C9A07A</div></div><div class="role">Acento cálido medio.</div></div>
+      <div class="sw" style="background:#6E4E32; color:#F4EFE6;"><div><div class="name">Cuero</div><div class="hex">#6E4E32</div></div><div class="role">Tono medio oscuro. Texturas.</div></div>
+      <div class="sw" style="background:#4A3220; color:#F4EFE6;"><div><div class="name">Nogal</div><div class="hex">#4A3220</div></div><div class="role">Profundidad. Acentos extra.</div></div>
+      <div class="sw" style="background:#1A1410; color:#C9A86A; border:0.5px solid rgba(201,168,106,0.3);"><div><div class="name">Ébano</div><div class="hex">#1A1410</div></div><div class="role">Fondo principal. Donde va el dorado.</div></div>
+      <div class="sw" style="background:#C9A86A; color:#1A1410;"><div><div class="name">Dorado</div><div class="hex">#C9A86A</div></div><div class="role">Acento principal. Foil, capitulares, logo.</div></div>
+    </div>
+    <div class="ribbon"><span class="wm">Legado</span><span>09 / 18 · Paleta</span></div>
+  </section>
+
+  <!-- ============================================================
+       10 · COLOR EN USO
+       ============================================================ -->
+  <section data-screen-label="10 Color en uso">
+    <div class="pm-bl"></div><div class="pm-br"></div>
+    <div class="eyebrow">— 09 · Color en uso</div>
+    <div class="header-row" style="margin-bottom:0;">
+      <h2 class="subtitle">Tres combinaciones <em>aprobadas</em>.</h2>
+      <p class="body" style="max-width:36ch;">El resto se considera fuera del sistema. Cualquier ratio nuevo requiere aprobación.</p>
+    </div>
+    <div class="combos">
+      <div class="combo">
+        <div class="bars">
+          <div style="flex:6; background:#1A1410; color:#F4EFE6;">Ébano · 60</div>
+          <div style="flex:3; background:#F4EFE6; color:#4A3220;">Marfil · 30</div>
+          <div style="flex:1; background:#C9A86A; color:#1A1410;">Oro · 10</div>
+        </div>
+        <div class="meta"><span class="t">Dorado sobre ébano</span><span class="pct">60 / 30 / 10</span></div>
+        <div class="desc">Eje principal de marca. Cabeceras, manifiesto, packaging.</div>
+      </div>
+      <div class="combo">
+        <div class="bars">
+          <div style="flex:6; background:#F4EFE6; color:#4A3220;">Marfil · 60</div>
+          <div style="flex:3; background:#6E4E32; color:#F4EFE6;">Cuero · 30</div>
+          <div style="flex:1; background:#C9A86A; color:#1A1410;">Oro · 10</div>
+        </div>
+        <div class="meta"><span class="t">Heritage claro</span><span class="pct">60 / 30 / 10</span></div>
+        <div class="desc">Páginas funcionales y fichas. Marfil domina, cuero estructura.</div>
+      </div>
+      <div class="combo">
+        <div class="bars">
+          <div style="flex:5.5; background:#6E4E32; color:#F4EFE6;">Cuero · 55</div>
+          <div style="flex:3; background:#4A3220; color:#E8DDC8;">Nogal · 30</div>
+          <div style="flex:1.5; background:#C9A07A; color:#1A1410;">Piel · 15</div>
+        </div>
+        <div class="meta"><span class="t">Cuero profundo</span><span class="pct">55 / 30 / 15</span></div>
+        <div class="desc">Fotografía de modelos y mockups táctiles. Tonalidades medias cálidas.</div>
+      </div>
+    </div>
+    <div class="ribbon"><span class="wm">Legado</span><span>10 / 18 · Color en uso</span></div>
+  </section>
+
+  <!-- ============================================================
+       11 · TIPOGRAFÍA
+       ============================================================ -->
+  <section data-screen-label="11 Tipografía">
+    <div class="pm-bl"></div><div class="pm-br"></div>
+    <div class="eyebrow">— 10 · Tipografía</div>
+    <div class="header-row" style="margin-bottom:0;">
+      <h2 class="subtitle">Dos <em>voces</em>.</h2>
+      <p class="body" style="max-width:46ch;">Serif para lo que el cliente recuerda. Sans para lo que el cliente necesita.</p>
+    </div>
+    <div class="typo-grid">
+      <div class="typo-col">
+        <div class="role">Voz editorial · Cormorant Garamond</div>
+        <h3 class="specimen">Aa</h3>
+        <div class="demo">«los muebles que se quedan»</div>
+        <div class="meta">Light · Regular · Medium<br>SemiBold · Bold · italics<br>Titulares · manifiesto · claims</div>
+      </div>
+      <div class="typo-col sans">
+        <div class="role">Voz de servicio · Inter</div>
+        <h3 class="specimen">Aa</h3>
+        <div class="demo">Envío en 4 semanas · Devolución 30 días</div>
+        <div class="meta">Regular cuerpo · Medium labels<br>Bold solo CTAs · Tabular nums<br>Navegación · fichas · microcopy</div>
+      </div>
+    </div>
+    <div class="ribbon"><span class="wm">Legado</span><span>11 / 18 · Tipografía</span></div>
+  </section>
+
+  <!-- ============================================================
+       12 · ESTILO FOTOGRÁFICO
+       ============================================================ -->
+  <section data-screen-label="12 Estilo fotográfico">
+    <div class="pm-bl"></div><div class="pm-br"></div>
+    <div class="eyebrow">— 11 · Estilo fotográfico</div>
+    <div class="header-row" style="margin-bottom:0;">
+      <h2 class="subtitle">Casa real,<br>luz de <em>tarde</em>.</h2>
+      <p class="body" style="max-width:36ch;">No mostramos producto: mostramos escenas. Cada imagen es una pregunta: ¿podría yo vivir aquí?</p>
+    </div>
+    <div class="photo-grid">
+      <div class="photo hero"><div class="lbl"><em>Hero ambiental</em>Casa habitada · hora dorada</div></div>
+      <div class="photo det1"><div class="lbl"><em>Macro</em>Cuero cognac · costura</div></div>
+      <div class="photo det2"><div class="lbl"><em>Macro</em>Lino lavado · veta</div></div>
+      <div class="photo det3"><div class="lbl"><em>Detalle</em>Terciopelo · campaña noche</div></div>
+      <div class="photo det4"><div class="lbl"><em>3/4</em>Figura humana parcial</div></div>
+    </div>
+    <div class="ribbon"><span class="wm">Legado</span><span>12 / 18 · Fotografía</span></div>
+  </section>
+
+  <!-- ============================================================
+       13 · TEXTURAS
+       ============================================================ -->
+  <section data-screen-label="13 Texturas">
+    <div class="pm-bl"></div><div class="pm-br"></div>
+    <div class="eyebrow">— 12 · Texturas</div>
+    <div class="header-row" style="margin-bottom:0;">
+      <h2 class="subtitle">Lo que toca tu <em>mano</em>.</h2>
+      <p class="body" style="max-width:36ch;">Cueros, tejidos, maderas, latones. Cada uno con su rango tonal aprobado. El latón siempre patinado.</p>
+    </div>
+    <div class="texturas-cat">
+      <div class="tex-group">
+        <div class="ttl">Cuero<em>4 tonos</em></div>
+        <div class="tex-row">
+          <div class="tile" style="background:#9B5E2C;"><span class="nm">Cognac</span></div>
+          <div class="tile" style="background:#6E4322;"><span class="nm">Tabaco</span></div>
+          <div class="tile" style="background:#4A2E1E;"><span class="nm">Moka</span></div>
+          <div class="tile" style="background:#7E5436;"><span class="nm">Castaño</span></div>
+        </div>
+      </div>
+      <div class="tex-group">
+        <div class="ttl">Tejido<em>3 familias</em></div>
+        <div class="tex-row">
+          <div class="tile" style="background:linear-gradient(45deg,#E6D6B8 0%,#C9A07A 100%);"><span class="nm">Bouclé · crudo</span></div>
+          <div class="tile" style="background:linear-gradient(45deg,#DCC8A6 0%,#B89466 100%);"><span class="nm">Lino · arena</span></div>
+          <div class="tile" style="background:linear-gradient(45deg,#6E2620 0%,#3F1612 100%);"><span class="nm">Terciopelo · rioja</span></div>
+          <div class="tile" style="background:linear-gradient(45deg,#4A3220 0%,#2A1B12 100%);"><span class="nm">Bouclé · tabaco</span></div>
+        </div>
+      </div>
+      <div class="tex-group">
+        <div class="ttl">Madera<em>+ latón</em></div>
+        <div class="tex-row">
+          <div class="tile" style="background:linear-gradient(45deg,#3A2616 0%,#1A1108 100%);"><span class="nm">Nogal oscuro</span></div>
+          <div class="tile" style="background:linear-gradient(45deg,#A77E48 0%,#6E4E32 100%);"><span class="nm">Roble natural</span></div>
+          <div class="tile" style="background:linear-gradient(45deg,#8A4D38 0%,#5C2D20 100%);"><span class="nm">Cerezo</span></div>
+          <div class="tile" style="background:linear-gradient(45deg,#C9A86A 0%,#8A6446 100%);"><span class="nm">Latón patinado</span></div>
+        </div>
+      </div>
+    </div>
+    <div class="ribbon"><span class="wm">Legado</span><span>13 / 18 · Texturas</span></div>
+  </section>
+
+  <!-- ============================================================
+       14 · SISTEMA VISUAL
+       ============================================================ -->
+  <section data-screen-label="14 Sistema visual">
+    <div class="pm-bl"></div><div class="pm-br"></div>
+    <div class="eyebrow">— 13 · Sistema visual</div>
+    <div class="header-row" style="margin-bottom:0;">
+      <h2 class="subtitle">Cómo se ve <em>junto</em>.</h2>
+      <p class="body" style="max-width:36ch;">Seis elementos recurrentes que dan unidad al sistema sin parecer un mismo módulo repetido.</p>
+    </div>
+    <div class="sys-grid">
+      <div class="sys-card">
+        <div class="n">01</div>
+        <div class="t">El sello</div>
+        <div class="d">Siempre presente. Grande en cabeceras, pequeño en firma. Nunca recortado.</div>
+        <div class="demo" style="display:flex; justify-content:center; padding-top:24px;">
+          <div style="width:54px;height:54px;border-radius:50%;border:1px solid var(--dorado);display:grid;place-items:center;color:var(--dorado);font-family:var(--font-display);font-style:italic;font-size:22px;letter-spacing:-0.04em;">LG</div>
+        </div>
+      </div>
+      <div class="sys-card">
+        <div class="n">02</div>
+        <div class="t">Marcas de página</div>
+        <div class="d">Cuatro pequeñas crucetas en las esquinas. Estilo libro editorial.</div>
+        <div class="demo" style="position:relative; padding-top:32px; min-height:90px;">
+          <div style="position:absolute;top:18px;left:8px;width:14px;height:14px;background:linear-gradient(var(--dorado),var(--dorado)) center/100% 0.5px no-repeat,linear-gradient(var(--dorado),var(--dorado)) center/0.5px 100% no-repeat;opacity:0.7;"></div>
+          <div style="position:absolute;top:18px;right:8px;width:14px;height:14px;background:linear-gradient(var(--dorado),var(--dorado)) center/100% 0.5px no-repeat,linear-gradient(var(--dorado),var(--dorado)) center/0.5px 100% no-repeat;opacity:0.7;"></div>
+          <div style="position:absolute;bottom:8px;left:8px;width:14px;height:14px;background:linear-gradient(var(--dorado),var(--dorado)) center/100% 0.5px no-repeat,linear-gradient(var(--dorado),var(--dorado)) center/0.5px 100% no-repeat;opacity:0.7;"></div>
+          <div style="position:absolute;bottom:8px;right:8px;width:14px;height:14px;background:linear-gradient(var(--dorado),var(--dorado)) center/100% 0.5px no-repeat,linear-gradient(var(--dorado),var(--dorado)) center/0.5px 100% no-repeat;opacity:0.7;"></div>
+        </div>
+      </div>
+      <div class="sys-card">
+        <div class="n">03</div>
+        <div class="t">Capitular latón</div>
+        <div class="d">Inicial en serif italic, color latón. Marca el inicio de una idea.</div>
+        <div class="demo demo-cap">Creemos en las casas que se hacen despacio.</div>
+      </div>
+      <div class="sys-card">
+        <div class="n">04</div>
+        <div class="t">Rule fina</div>
+        <div class="d">0.4 a 0.8 pt en latón. Nunca decorativa: separa o subraya.</div>
+        <div class="demo"><div class="demo-rule"></div><div class="demo-rule" style="margin-top:14px;border-top-color:rgba(201,168,106,0.45);"></div></div>
+      </div>
+      <div class="sys-card">
+        <div class="n">05</div>
+        <div class="t">Numeración</div>
+        <div class="d">Sans pequeña, pares de cifras. Sensación de colección breve.</div>
+        <div class="demo"><div class="demo-no">N.º 00184 / 2026</div><div class="demo-no" style="margin-top:6px;">Carta n.º 04 · 06</div></div>
+      </div>
+      <div class="sys-card">
+        <div class="n">06</div>
+        <div class="t">Asimetría</div>
+        <div class="d">Casi todo alineado a la izquierda. El centrado se reserva para momentos solemnes.</div>
+        <div class="demo" style="display:flex;flex-direction:column;gap:6px;">
+          <div style="height:8px;background:var(--dorado);width:60%;"></div>
+          <div style="height:6px;background:rgba(244,239,230,0.4);width:80%;"></div>
+          <div style="height:6px;background:rgba(244,239,230,0.4);width:45%;"></div>
+        </div>
+      </div>
+    </div>
+    <div class="ribbon"><span class="wm">Legado</span><span>14 / 18 · Sistema visual</span></div>
+  </section>
+
+  <!-- ============================================================
+       15 · CLAIMS
+       ============================================================ -->
+  <section data-screen-label="15 Claims">
+    <div class="pm-bl"></div><div class="pm-br"></div>
+    <div class="eyebrow">— 14 · Claims y headlines</div>
+    <div class="header-row" style="margin-bottom:0;">
+      <h2 class="subtitle">Lo que <em>decimos</em>.</h2>
+      <div class="small-label">04 / curados</div>
+    </div>
+    <div class="claims-list">
+      <div class="claim-row">
+        <div class="n">01</div>
+        <div class="t">Todos recordamos un sillón.<br><em>Este puede ser el tuyo.</em></div>
+      </div>
+      <div class="claim-row">
+        <div class="n">02</div>
+        <div class="t">Ya no se hacen muebles<br>para dejar <em>leyenda</em>.</div>
+      </div>
+      <div class="claim-row">
+        <div class="n">03</div>
+        <div class="t"><em>Ergonómicamente diseñado</em><br>para cuidar.</div>
+      </div>
+      <div class="claim-row">
+        <div class="n">04</div>
+        <div class="t">Mejoramos la salud a través de la <em>circulación</em>, el <em>bienestar</em> y el <em>descanso</em>.</div>
+      </div>
+    </div>
+    <div class="ribbon"><span class="wm">Legado</span><span>15 / 18 · Claims</span></div>
+  </section>
+
+  <!-- ============================================================
+       16 · MODELOS HERO
+       ============================================================ -->
+  <section data-screen-label="16 Modelos hero">
+    <div class="pm-bl"></div><div class="pm-br"></div>
+    <div class="eyebrow">— 15 · Colección · modelos hero</div>
+    <div class="header-row" style="margin-bottom:0;">
+      <h2 class="subtitle">Pocas piezas.<br>Defendidas <em>una a una</em>.</h2>
+      <p class="body" style="max-width:36ch;">Crecemos a piezas nuevas sólo cuando cada una puede mantener el mismo estándar. Hoy son cuatro. Tres aquí.</p>
+    </div>
+    <div class="models">
+      <div class="model">
+        <div class="img baltic"><div class="n">Nº 01 / 04</div></div>
+        <div class="info"><div><div class="nm">Baltic</div><div class="mat">Cuero · cognac</div></div><div class="price">890 €</div></div>
+      </div>
+      <div class="model">
+        <div class="img nordic"><div class="n">Nº 02 / 04</div></div>
+        <div class="info"><div><div class="nm">Nordic</div><div class="mat">Lino · arena</div></div><div class="price">820 €</div></div>
+      </div>
+      <div class="model">
+        <div class="img venus"><div class="n">Nº 03 / 04</div></div>
+        <div class="info"><div><div class="nm">Venus</div><div class="mat">Bouclé · crudo</div></div><div class="price">760 €</div></div>
+      </div>
+    </div>
+    <div class="ribbon"><span class="wm">Legado</span><span>16 / 18 · Modelos hero</span></div>
+  </section>
+
+  <!-- ============================================================
+       17 · APLICACIONES — Web + Packaging
+       ============================================================ -->
+  <section data-screen-label="17 Aplicaciones">
+    <div class="pm-bl"></div><div class="pm-br"></div>
+    <div class="eyebrow">— 16 · Aplicaciones</div>
+    <div class="header-row" style="margin-bottom:0;">
+      <h2 class="subtitle">Web y <em>packaging</em>.</h2>
+      <p class="body" style="max-width:36ch;">La web es la única superficie de producto. El packaging, el primer contacto físico con la marca.</p>
+    </div>
+    <div class="app-grid">
+      <div class="device">
+        <div class="browser">
+          <div class="dots"><span></span><span></span><span></span></div>
+          <div class="url">https://legado.es</div>
+        </div>
+        <div class="nav-mini">
+          <div class="left">
+            <div class="seal-mini">LG</div>
+            <div class="wm">Legado</div>
+          </div>
+          <div class="links"><span>Colección</span><span>Materiales</span><span>Sobre nosotros</span><span>Contacto</span></div>
+        </div>
+        <div class="hero-mini">
+          <div class="txt">
+            <h4>Sillones para<br><em>toda la vida.</em></h4>
+            <div class="l">Hechos bajo demanda en talleres españoles. Sin stock, sin temporadas.</div>
+            <div class="b">Ver la colección</div>
+          </div>
+          <div class="pic"></div>
+        </div>
+      </div>
+      <div class="pkg">
+        <div class="crate">
+          <div class="seal-on-box">
+            <img class="seal-img" src="../assets/logo-seal.jpg" alt="Sello en foil" style="width:100%;height:100%;">
+          </div>
+          <div class="wm">Legado</div>
+        </div>
+        <div class="footer">Caja exterior · cartón kraft · foil dorado</div>
+      </div>
+    </div>
+    <div class="ribbon"><span class="wm">Legado</span><span>17 / 18 · Aplicaciones</span></div>
+  </section>
+
+  <!-- ============================================================
+       18 · CIERRE
+       ============================================================ -->
+  <section data-screen-label="18 Cierre">
+    <div class="pm-bl"></div><div class="pm-br"></div>
+    <div class="closing">
+      <div></div>
+      <div class="center">
+        <div class="seal-glow" style="width:200px; aspect-ratio:1/1; position:relative;">
+          <img class="seal-img" src="../assets/logo-seal.jpg" style="width:100%;height:100%;" alt="LEGADO">
+        </div>
+        <h1 class="final-claim">Hecho para<br><em>quedarse</em>.</h1>
+        <div class="sign">Legado · Brandbook v 2.0 · 2026<br>Documento interno y confidencial</div>
+      </div>
+      <div></div>
+    </div>
+  </section>
+
+</deck-stage>
+
+<script src="deck-stage.js"></script>
+</body>
+</html>

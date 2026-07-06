@@ -1,0 +1,473 @@
+/* ============================================================
+   LEGADO · Colors & Type · v2.0 · 2026
+   ============================================================
+   Source: LEGADO Manual de Identidad de Marca v2.0 (interno).
+   Eje principal: DORADO sobre ÉBANO.
+   Siete tonos. Cero blanco puro, cero negro absoluto.
+   Todos los colores son cálidos.
+   ============================================================ */
+
+/* ============================================================
+   Cormorant Garamond — instalada localmente desde fonts/
+   Subida por el cliente · serif editorial principal.
+
+   Manual §18 lista Cormorant Garamond como alternativa a DM
+   Serif Display. El cliente ha elegido este camino: tipografía
+   más clásica, refinada, con pesos light/medium para tonos
+   editoriales pausados.
+   ============================================================ */
+@font-face {
+  font-family: "Cormorant Garamond";
+  src: url("fonts/CormorantGaramond-Light.ttf") format("truetype");
+  font-weight: 300; font-style: normal; font-display: swap;
+}
+@font-face {
+  font-family: "Cormorant Garamond";
+  src: url("fonts/CormorantGaramond-LightItalic.ttf") format("truetype");
+  font-weight: 300; font-style: italic; font-display: swap;
+}
+@font-face {
+  font-family: "Cormorant Garamond";
+  src: url("fonts/CormorantGaramond-Regular.ttf") format("truetype");
+  font-weight: 400; font-style: normal; font-display: swap;
+}
+@font-face {
+  font-family: "Cormorant Garamond";
+  src: url("fonts/CormorantGaramond-Italic.ttf") format("truetype");
+  font-weight: 400; font-style: italic; font-display: swap;
+}
+@font-face {
+  font-family: "Cormorant Garamond";
+  src: url("fonts/CormorantGaramond-Medium.ttf") format("truetype");
+  font-weight: 500; font-style: normal; font-display: swap;
+}
+@font-face {
+  font-family: "Cormorant Garamond";
+  src: url("fonts/CormorantGaramond-MediumItalic.ttf") format("truetype");
+  font-weight: 500; font-style: italic; font-display: swap;
+}
+@font-face {
+  font-family: "Cormorant Garamond";
+  src: url("fonts/CormorantGaramond-SemiBold.ttf") format("truetype");
+  font-weight: 600; font-style: normal; font-display: swap;
+}
+@font-face {
+  font-family: "Cormorant Garamond";
+  src: url("fonts/CormorantGaramond-SemiBoldItalic.ttf") format("truetype");
+  font-weight: 600; font-style: italic; font-display: swap;
+}
+@font-face {
+  font-family: "Cormorant Garamond";
+  src: url("fonts/CormorantGaramond-Bold.ttf") format("truetype");
+  font-weight: 700; font-style: normal; font-display: swap;
+}
+@font-face {
+  font-family: "Cormorant Garamond";
+  src: url("fonts/CormorantGaramond-BoldItalic.ttf") format("truetype");
+  font-weight: 700; font-style: italic; font-display: swap;
+}
+
+/* ============================================================
+   Inter — instalada localmente desde fonts/
+   Subido por el cliente · sustituye a la versión Google Fonts.
+
+   Pesos CANÓNICOS del manual §18:
+     · 400 Regular  — cuerpo
+     · 500 Medium   — labels
+     · 700 Bold     — CTAs
+
+   Pesos extendidos disponibles (uso restringido):
+     200 ExtraLight (β) · 300 Light (β) · 600 SemiBold ·
+     800 ExtraBold · 900 Black · 100 Thin (β)
+   ============================================================ */
+
+/* ——— Regular 400 ——— */
+@font-face {
+  font-family: "Inter";
+  src: url("fonts/Inter-Regular.otf") format("opentype");
+  font-weight: 400; font-style: normal; font-display: swap;
+}
+@font-face {
+  font-family: "Inter";
+  src: url("fonts/Inter-Italic.otf") format("opentype");
+  font-weight: 400; font-style: italic; font-display: swap;
+}
+/* ——— Medium 500 ——— */
+@font-face {
+  font-family: "Inter";
+  src: url("fonts/Inter-Medium.otf") format("opentype");
+  font-weight: 500; font-style: normal; font-display: swap;
+}
+@font-face {
+  font-family: "Inter";
+  src: url("fonts/Inter-MediumItalic.otf") format("opentype");
+  font-weight: 500; font-style: italic; font-display: swap;
+}
+/* ——— SemiBold 600 ——— */
+@font-face {
+  font-family: "Inter";
+  src: url("fonts/Inter-SemiBold.otf") format("opentype");
+  font-weight: 600; font-style: normal; font-display: swap;
+}
+@font-face {
+  font-family: "Inter";
+  src: url("fonts/Inter-SemiBoldItalic.otf") format("opentype");
+  font-weight: 600; font-style: italic; font-display: swap;
+}
+/* ——— Bold 700 ——— */
+@font-face {
+  font-family: "Inter";
+  src: url("fonts/Inter-Bold.otf") format("opentype");
+  font-weight: 700; font-style: normal; font-display: swap;
+}
+@font-face {
+  font-family: "Inter";
+  src: url("fonts/Inter-BoldItalic.otf") format("opentype");
+  font-weight: 700; font-style: italic; font-display: swap;
+}
+/* ——— Thin 100 (beta) ——— */
+@font-face {
+  font-family: "Inter";
+  src: url("fonts/Inter-Thin-BETA.otf") format("opentype");
+  font-weight: 100; font-style: normal; font-display: swap;
+}
+@font-face {
+  font-family: "Inter";
+  src: url("fonts/Inter-ThinItalic-BETA.otf") format("opentype");
+  font-weight: 100; font-style: italic; font-display: swap;
+}
+/* ——— Black 900 ——— */
+@font-face {
+  font-family: "Inter";
+  src: url("fonts/Inter-Black.otf") format("opentype");
+  font-weight: 900; font-style: normal; font-display: swap;
+}
+@font-face {
+  font-family: "Inter";
+  src: url("fonts/Inter-BlackItalic.otf") format("opentype");
+  font-weight: 900; font-style: italic; font-display: swap;
+}
+/* ——— ExtraBold 800 ——— */
+@font-face {
+  font-family: "Inter";
+  src: url("fonts/Inter-ExtraBold.otf") format("opentype");
+  font-weight: 800; font-style: normal; font-display: swap;
+}
+@font-face {
+  font-family: "Inter";
+  src: url("fonts/Inter-ExtraBoldItalic.otf") format("opentype");
+  font-weight: 800; font-style: italic; font-display: swap;
+}
+/* ——— Light 300 (beta) ——— */
+@font-face {
+  font-family: "Inter";
+  src: url("fonts/Inter-Light-BETA.otf") format("opentype");
+  font-weight: 300; font-style: normal; font-display: swap;
+}
+@font-face {
+  font-family: "Inter";
+  src: url("fonts/Inter-LightItalic-BETA.otf") format("opentype");
+  font-weight: 300; font-style: italic; font-display: swap;
+}
+/* ——— ExtraLight 200 (beta) ——— */
+@font-face {
+  font-family: "Inter";
+  src: url("fonts/Inter-ExtraLight-BETA.otf") format("opentype");
+  font-weight: 200; font-style: normal; font-display: swap;
+}
+@font-face {
+  font-family: "Inter";
+  src: url("fonts/Inter-ExtraLightItalic-BETA.otf") format("opentype");
+  font-weight: 200; font-style: italic; font-display: swap;
+}
+
+:root {
+  /* ============================================================
+     PALETA · 7 tonos oficiales (manual §16)
+     ============================================================ */
+  --marfil:          #F4EFE6;  /* Fondo claro. Sustituye al blanco.        */
+  --beige:           #E8DDC8;  /* Superficies claras secundarias.          */
+  --piel:            #C9A07A;  /* Acento cálido medio.                     */
+  --cuero:           #6E4E32;  /* Tono medio oscuro. Texturas.             */
+  --nogal:           #4A3220;  /* Profundidad. Acentos extra-oscuros.      */
+  --ebano:           #1A1410;  /* Fondo principal. Donde va el dorado.     */
+  --dorado:          #C9A86A;  /* Acento principal. Logo, foil, capitulares*/
+
+  /* Variantes derivadas (uso restringido, no parte oficial) */
+  --marfil-2:        #FAF6EF;  /* highlight crema, papel interior          */
+  --dorado-soft:     rgba(201,168,106,0.18);
+
+  /* ============================================================
+     SEMÁNTICA — combina según §17 "Color en uso"
+     Combo 1 · Dorado sobre Ébano    (eje principal)
+     Combo 2 · Heritage claro        (marfil + cuero + dorado)
+     Combo 3 · Cuero profundo        (medios cálidos)
+     ============================================================ */
+
+  /* Por defecto: Heritage claro */
+  --bg:              var(--marfil);
+  --bg-2:            var(--beige);
+  --bg-strong:       var(--ebano);
+  --bg-mid:          var(--cuero);
+
+  --fg1:             var(--nogal);    /* texto principal sobre marfil      */
+  --fg2:             var(--cuero);    /* texto secundario                  */
+  --fg3:             #8A6A4A;         /* metadata, captions (derivado)     */
+  --fg-on-ebano:     var(--marfil);   /* texto sobre fondos oscuros        */
+  --fg-on-cuero:     var(--marfil);
+
+  --rule:            #D7C7A8;         /* hairline cálido derivado del beige*/
+  --rule-strong:     var(--cuero);
+  --rule-laton:      var(--dorado);   /* "rule fina en latón" §23          */
+
+  --accent:          var(--dorado);   /* SIEMPRE patinado, nunca brillante */
+  --accent-ink:      var(--ebano);    /* texto sobre dorado                */
+
+  /* ============================================================
+     TIPOGRAFÍA · §18
+     Serif para lo que el cliente recuerda.
+     Sans para lo que el cliente necesita.
+     ============================================================ */
+  --font-display:    "Cormorant Garamond", "DM Serif Display", "Tiempos Headline", Georgia, serif;
+  --font-serif-text: "Cormorant Garamond", Georgia, "Times New Roman", serif;
+  --font-sans:       "Inter", "Söhne", "Suisse Int'l", -apple-system, BlinkMacSystemFont, "Helvetica Neue", sans-serif;
+  --font-mono:       ui-monospace, "JetBrains Mono", "SF Mono", monospace;
+
+  /* ============================================================
+     ESCALA DE TAMAÑO
+     Editorial generosa. Nunca serif por debajo de 10pt (§18).
+     ============================================================ */
+  --fs-claim:        96px;   /* hero claim — "Sillones para toda la vida." */
+  --fs-display:      72px;
+  --fs-h1:           48px;
+  --fs-h2:           34px;
+  --fs-h3:           24px;
+  --fs-h4:           19px;
+  --fs-body:         17px;
+  --fs-small:        14px;
+  --fs-caption:      12px;
+  --fs-eyebrow:      11px;
+
+  --lh-tight:        1.04;   /* claims                                     */
+  --lh-display:      1.08;
+  --lh-snug:         1.22;
+  --lh-body:         1.55;
+  --lh-loose:        1.7;
+
+  --tracking-caps:   0.22em; /* mayúsculas espaciadas, estilo sello        */
+  --tracking-nav:    0.08em; /* navegación, labels                         */
+  --tracking-tight:  -0.01em;
+  --tracking-claim:  -0.02em;
+
+  /* ============================================================
+     ESPACIADO · módulo de 8
+     Composición asimétrica, alineada a la izquierda (§23).
+     ============================================================ */
+  --space-1:         4px;
+  --space-2:         8px;
+  --space-3:         12px;
+  --space-4:         16px;
+  --space-5:         24px;
+  --space-6:         32px;
+  --space-7:         48px;
+  --space-8:         72px;
+  --space-9:         112px;
+  --space-10:        160px;
+
+  /* ============================================================
+     RADIOS
+     Casi todo recto. Heritage editorial.
+     ============================================================ */
+  --radius-sm:       2px;
+  --radius-md:       3px;
+  --radius-lg:       6px;   /* máximo, en imágenes amplias                  */
+  --radius-pill:     999px; /* tags / chips                                 */
+
+  /* ============================================================
+     RULES & BORDES
+     0.4 a 0.8 pt en latón (§23 punto 04). Nunca decorativa.
+     ============================================================ */
+  --border-hair:     0.5px solid var(--rule);
+  --border-laton:    0.5px solid var(--dorado);
+  --border-strong:   1px solid var(--cuero);
+
+  /* ============================================================
+     SOMBRAS
+     Suaves, cálidas, "presión sobre papel". Nunca azules ni duras.
+     ============================================================ */
+  --shadow-sink:     0 1px 0 rgba(26,20,16,0.05);
+  --shadow-card:     0 1px 2px rgba(26,20,16,0.05),
+                     0 12px 28px -16px rgba(74,50,32,0.22);
+  --shadow-press:    inset 0 1px 0 rgba(26,20,16,0.18);
+  --shadow-foil:     0 0 0 1px rgba(201,168,106,0.6),
+                     0 1px 0 rgba(255,255,255,0.06) inset;
+
+  /* ============================================================
+     CONTENEDOR — composición asimétrica, columna principal
+     ============================================================ */
+  --container:       1200px;
+  --container-text:  720px;
+}
+
+/* ============================================================
+   COMBO 1 · Dorado sobre Ébano (eje principal)
+   Aplicar con: <body data-combo="ebano"> o .on-ebano
+   ============================================================ */
+[data-combo="ebano"], .on-ebano {
+  --bg: var(--ebano);
+  --bg-2: var(--nogal);
+  --fg1: var(--marfil);
+  --fg2: #C8B89A;
+  --fg3: #8E7E62;
+  --rule: rgba(201,168,106,0.25);
+  --rule-strong: var(--dorado);
+}
+
+/* ============================================================
+   COMBO 3 · Cuero profundo
+   ============================================================ */
+[data-combo="cuero"], .on-cuero {
+  --bg: var(--cuero);
+  --bg-2: var(--nogal);
+  --fg1: var(--marfil);
+  --fg2: var(--beige);
+  --fg3: var(--piel);
+  --rule: rgba(244,239,230,0.18);
+  --rule-strong: var(--piel);
+}
+
+/* ============================================================
+   ESTILOS BASE
+   ============================================================ */
+
+*, *::before, *::after { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--fg1);
+  font-family: var(--font-sans);
+  font-size: var(--fs-body);
+  line-height: var(--lh-body);
+  font-feature-settings: "kern", "liga";
+  -webkit-font-smoothing: antialiased;
+}
+
+/* Serif editorial — display, claims, headlines.
+   Cormorant Garamond es más fina que DM Serif Display, así que
+   subimos el peso por defecto a 500 (Medium) para igualar
+   presencia visual en titulares. */
+.claim, .display, h1, h2, h3, h4 {
+  font-family: var(--font-display);
+  color: var(--fg1);
+  font-weight: 500;
+  letter-spacing: var(--tracking-claim);
+  line-height: var(--lh-display);
+  margin: 0;
+}
+
+/* Default-weight para elementos con la display family aplicada inline.
+   Cubre los divs/spans de los UI kits que usan var(--font-display)
+   en style attribute sin especificar peso. */
+[style*="--font-display"] { font-weight: 500; }
+
+.claim       { font-size: var(--fs-claim); line-height: var(--lh-tight); }
+.display     { font-size: var(--fs-display); }
+h1           { font-size: var(--fs-h1); }
+h2           { font-size: var(--fs-h2); line-height: var(--lh-snug); }
+h3           { font-size: var(--fs-h3); line-height: var(--lh-snug); }
+h4           { font-size: var(--fs-h4); line-height: var(--lh-snug); font-family: var(--font-sans); font-weight: 600; letter-spacing: var(--tracking-nav); text-transform: uppercase; }
+
+p {
+  margin: 0 0 1em;
+  max-width: 62ch;
+}
+.lede {
+  font-family: var(--font-serif-text);
+  font-size: 21px;
+  line-height: 1.5;
+  font-style: italic;
+  color: var(--fg2);
+  max-width: 56ch;
+}
+small, .small { font-size: var(--fs-small); color: var(--fg2); }
+.caption      { font-size: var(--fs-caption); color: var(--fg3); }
+
+/* Eyebrow / navegación caps */
+.eyebrow {
+  font-family: var(--font-sans);
+  font-size: var(--fs-eyebrow);
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: var(--tracking-caps);
+  color: var(--fg2);
+}
+
+/* Caps espaciadas estilo sello */
+.seal-caps {
+  font-family: var(--font-display);
+  text-transform: uppercase;
+  letter-spacing: var(--tracking-caps);
+}
+
+/* Capitular en latón (§23 punto 03) */
+.dropcap::first-letter {
+  font-family: var(--font-display);
+  font-style: italic;
+  color: var(--dorado);
+  font-size: 4.2em;
+  line-height: 0.85;
+  float: left;
+  padding: 0.05em 0.12em 0 0;
+  font-weight: 400;
+}
+
+/* Enlaces — sobrios, sin decoración chillona */
+a {
+  color: inherit;
+  text-decoration: none;
+  border-bottom: 0.5px solid currentColor;
+  transition: opacity .2s ease;
+}
+a:hover  { opacity: 0.6; }
+a:active { opacity: 1; }
+
+/* Rule editorial (§23) */
+hr {
+  border: 0;
+  border-top: var(--border-laton);
+  margin: var(--space-6) 0;
+}
+hr.thin   { border-top-color: var(--rule); }
+hr.strong { border-top: var(--border-strong); }
+
+/* Numeración de colección — pares de cifras (§23) */
+.collection-no {
+  font-family: var(--font-sans);
+  font-size: 11px;
+  letter-spacing: var(--tracking-caps);
+  color: var(--fg3);
+  text-transform: uppercase;
+  font-variant-numeric: tabular-nums;
+}
+
+::selection { background: var(--dorado); color: var(--ebano); }
+
+/* Marcas de página · crucetas en esquinas (§23 punto 02) */
+.page-marks {
+  position: relative;
+}
+.page-marks::before,
+.page-marks::after {
+  content: "";
+  position: absolute;
+  width: 12px;
+  height: 12px;
+  background:
+    linear-gradient(currentColor, currentColor) center/100% 0.5px no-repeat,
+    linear-gradient(currentColor, currentColor) center/0.5px 100% no-repeat;
+  color: var(--fg3);
+  opacity: 0.6;
+}
+.page-marks::before { top: var(--space-5); left: var(--space-5); }
+.page-marks::after  { bottom: var(--space-5); right: var(--space-5); }

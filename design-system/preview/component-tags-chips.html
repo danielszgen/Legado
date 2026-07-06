@@ -1,0 +1,32 @@
+<!doctype html>
+<!-- @dsCard group="Components" name="Chips y badges" subtitle="Filtros · metadatos · numeración" viewport="700x210" -->
+<html lang="es"><head>
+<meta charset="utf-8">
+<link rel="stylesheet" href="../colors_and_type.css">
+<style>
+  html,body{margin:0;padding:0;}
+  .card{padding:24px 28px;min-height:100%;}
+  
+  .row{display:flex;flex-wrap:wrap;gap:10px;align-items:center}
+  .row + .row{margin-top:14px}
+  .chip{font-family:var(--font-sans);font-size:11px;font-weight:500;letter-spacing:.18em;text-transform:uppercase;padding:6px 12px;border-radius:999px;border:.5px solid #6E4E32;color:var(--fg2)}
+  .chip-active{background:#1A1410;color:#C9A86A;border-color:#1A1410}
+  .badge{font-family:var(--font-sans);font-size:10px;letter-spacing:.22em;text-transform:uppercase;color:var(--fg3);font-variant-numeric:tabular-nums}
+  .meta-row{font-family:var(--font-sans);font-size:11px;color:var(--fg2);letter-spacing:.12em;text-transform:uppercase}
+
+</style></head><body><div class="card">
+  <div class="row">
+    <span class="chip chip-active">Cuero cognac</span>
+    <span class="chip">Cuero moka</span>
+    <span class="chip">Lino arena</span>
+    <span class="chip">Bouclé crudo</span>
+  </div>
+  <div class="row">
+    <span class="meta-row">Cuero · cognac · Hecho en España</span>
+  </div>
+  <div class="row">
+    <span class="badge">Nº 00184 / 2026</span>
+    <span class="badge">Carta n.º 04</span>
+    <span class="badge">Edición · 03 piezas</span>
+  </div>
+</div></body></html>

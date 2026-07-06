@@ -1,0 +1,88 @@
+<!doctype html>
+<!-- @dsCard group="Brand" name="Claims y headlines" subtitle="Jerarquía decreciente · § 31" viewport="700x260" -->
+<html lang="es"><head>
+<meta charset="utf-8">
+<link rel="stylesheet" href="../colors_and_type.css">
+<style>
+  html, body { margin: 0; padding: 0; background: var(--ebano); }
+  body[data-combo] { background: var(--ebano); }
+  .card { padding: 30px 34px; min-height: 100%; color: var(--marfil); }
+
+  .head {
+    font-family: var(--font-sans);
+    font-size: 10.5px;
+    letter-spacing: 0.28em;
+    text-transform: uppercase;
+    color: var(--dorado);
+    margin-bottom: 22px;
+    display: flex;
+    justify-content: space-between;
+  }
+
+  .lst {
+    display: flex;
+    flex-direction: column;
+    gap: 18px;
+  }
+  .item {
+    display: grid;
+    grid-template-columns: 36px 1fr;
+    gap: 18px;
+    align-items: baseline;
+    padding-top: 18px;
+    border-top: 0.5px solid rgba(201,168,106,0.25);
+  }
+  .item:first-child { border-top: none; padding-top: 0; }
+
+  .n {
+    font-family: var(--font-sans);
+    font-size: 11px;
+    font-variant-numeric: tabular-nums;
+    letter-spacing: 0.28em;
+    color: var(--dorado);
+    padding-top: 6px;
+  }
+
+  .claim {
+    font-family: var(--font-display);
+    font-weight: 500;
+    font-size: 23px;
+    line-height: 1.18;
+    letter-spacing: -0.012em;
+    color: var(--marfil);
+    margin: 0;
+  }
+  .claim em { font-style: italic; color: var(--dorado); font-weight: 500; }
+</style>
+</head>
+<body data-combo="ebano">
+<div class="card">
+  <div class="head">
+    <span>— Claims y headlines · v 1.1</span>
+    <span>04 / 04 · curados</span>
+  </div>
+
+  <div class="lst">
+    <div class="item">
+      <span class="n">01</span>
+      <p class="claim">Todos recordamos un sillón.<br><em>Este puede ser el tuyo.</em></p>
+    </div>
+
+    <div class="item">
+      <span class="n">02</span>
+      <p class="claim">Ya no se hacen muebles<br>para dejar <em>leyenda</em>.</p>
+    </div>
+
+    <div class="item">
+      <span class="n">03</span>
+      <p class="claim"><em>Ergonómicamente diseñado</em><br>para cuidar.</p>
+    </div>
+
+    <div class="item">
+      <span class="n">04</span>
+      <p class="claim">Mejoramos la salud a través de la <em>circulación</em>, el <em>bienestar</em> y el <em>descanso</em>.</p>
+    </div>
+  </div>
+</div>
+</body>
+</html>

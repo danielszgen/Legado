@@ -1,0 +1,41 @@
+<!doctype html>
+<!-- @dsCard group="Brand" name="Lo que sí · Lo que no" subtitle="Reglas de marca aplicadas" viewport="700x260" -->
+<html lang="es"><head>
+<meta charset="utf-8">
+<link rel="stylesheet" href="../colors_and_type.css">
+<style>
+  html,body{margin:0;padding:0;}
+  .card{padding:24px 28px;min-height:100%;}
+  
+  .cols{display:grid;grid-template-columns:1fr 1fr;gap:0;border:.5px solid #D7C7A8;border-radius:3px;overflow:hidden}
+  .col{padding:18px}
+  .col + .col{border-left:.5px solid #D7C7A8}
+  h5{font-family:var(--font-sans);font-size:10.5px;letter-spacing:.32em;text-transform:uppercase;color:var(--fg2);margin:0 0 10px;font-weight:500}
+  ul{margin:0;padding:0;list-style:none;font-family:var(--font-serif-text);font-size:14px;line-height:1.5;color:var(--fg1)}
+  li{padding:5px 0;display:flex;gap:8px}
+  li::before{content:"·";color:#C9A86A;font-weight:bold;flex-shrink:0}
+  .no li::before{content:"×";color:#6E4E32;font-style:normal}
+
+</style></head><body><div class="card">
+  <div class="cols">
+    <div class="col">
+      <h5>Sí</h5>
+      <ul>
+        <li>Duración, no tendencia.</li>
+        <li>Materiales con nombre y origen.</li>
+        <li>Decir cuándo un modelo no encaja.</li>
+        <li>Sillón dentro de una casa real.</li>
+      </ul>
+    </div>
+    <div class="col no">
+      <h5>No</h5>
+      <ul>
+        <li>Urgencias, «stock limitado».</li>
+        <li>«Mejor calidad-precio».</li>
+        <li>Lenguaje médico de ergonomía.</li>
+        <li>Emojis en comunicación oficial.</li>
+        <li>Sillón flotando en fondo blanco.</li>
+      </ul>
+    </div>
+  </div>
+</div></body></html>

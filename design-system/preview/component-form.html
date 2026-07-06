@@ -1,0 +1,22 @@
+<!doctype html>
+<!-- @dsCard group="Components" name="Campos de formulario" subtitle="Underline · serif italic en placeholder" viewport="700x260" -->
+<html lang="es"><head>
+<meta charset="utf-8">
+<link rel="stylesheet" href="../colors_and_type.css">
+<style>
+  html,body{margin:0;padding:0;}
+  .card{padding:24px 28px;min-height:100%;}
+  
+  .field{display:flex;flex-direction:column;gap:6px}
+  .field + .field{margin-top:16px}
+  label{font-family:var(--font-sans);font-size:10.5px;letter-spacing:.22em;text-transform:uppercase;color:var(--fg2);font-weight:500}
+  input,select{font-family:var(--font-serif-text);font-size:17px;color:var(--fg1);background:transparent;border:none;border-bottom:.5px solid #6E4E32;padding:8px 0;outline:none}
+  input::placeholder{color:#9C805F;font-style:italic}
+  input:focus{border-bottom-color:#C9A86A}
+  .hint{font-family:var(--font-sans);font-size:11px;color:var(--fg3);letter-spacing:.02em}
+
+</style></head><body><div class="card">
+  <div class="field"><label>Nombre</label><input placeholder="Elena Vidal" value="Elena Vidal"></div>
+  <div class="field"><label>Email</label><input placeholder="tu@correo.es" value="elena@correo.es"></div>
+  <div class="field"><label>Mensaje</label><input placeholder="Pregunta sobre el modelo Baltic…"><span class="hint">Respondemos en menos de un día hábil.</span></div>
+</div></body></html>

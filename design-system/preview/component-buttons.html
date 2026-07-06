@@ -1,0 +1,21 @@
+<!doctype html>
+<!-- @dsCard group="Components" name="Botones" subtitle="Primario dorado · Secundario · Ghost" viewport="700x220" -->
+<html lang="es"><head>
+<meta charset="utf-8">
+<link rel="stylesheet" href="../colors_and_type.css">
+<style>
+  html,body{margin:0;padding:0;}
+  .card{padding:24px 28px;min-height:100%;}
+  
+  .row{display:flex;gap:14px;flex-wrap:wrap;align-items:center}
+  .row + .row{margin-top:16px}
+  .btn-primary{font-family:var(--font-sans);font-size:11.5px;font-weight:700;letter-spacing:.22em;text-transform:uppercase;color:#1A1410;background:#C9A86A;padding:13px 22px;border:none;cursor:pointer;border-radius:2px}
+  .btn-secondary{font-family:var(--font-sans);font-size:11.5px;font-weight:700;letter-spacing:.22em;text-transform:uppercase;color:#1A1410;background:transparent;padding:12px 21px;border:.5px solid #6E4E32;cursor:pointer;border-radius:2px}
+  .btn-ghost{font-family:var(--font-sans);font-size:11.5px;font-weight:500;letter-spacing:.2em;text-transform:uppercase;color:var(--fg2);background:transparent;padding:13px 4px;border:none;border-bottom:.5px solid #6E4E32;cursor:pointer}
+  .lbl{font-family:var(--font-sans);font-size:10px;letter-spacing:.22em;text-transform:uppercase;color:var(--fg3);min-width:110px}
+
+</style></head><body><div class="card">
+  <div class="row"><span class="lbl">Primario</span><button class="btn-primary">Ver la colección</button><button class="btn-primary" style="opacity:.6">Hover · 0.6</button></div>
+  <div class="row"><span class="lbl">Secundario</span><button class="btn-secondary">Saber más</button></div>
+  <div class="row"><span class="lbl">Ghost</span><button class="btn-ghost">Volver</button></div>
+</div></body></html>
