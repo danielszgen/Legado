@@ -82,7 +82,7 @@ const LEGADO_CATALOGUE = [
     defaults: { material: 'lino', color: 'crudo', madera: 'roble' },
     config: {
       legStyle: 'wood-tapered', armStyle: 'slim', backHeight: 0.78,
-      seatWidth: 1.0, headrest: false, swivel: false, wings: false,
+      seatWidth: 1.0, headrest: true, swivel: false, wings: false,
     },
   },
   {
@@ -130,7 +130,7 @@ const LEGADO_CATALOGUE = [
     defaults: { material: 'cuero', color: 'cognac', madera: 'nogal' },
     config: {
       legStyle: 'wood-straight', armStyle: 'block', backHeight: 0.74,
-      seatWidth: 1.04, headrest: false, swivel: false, wings: false,
+      seatWidth: 1.04, headrest: false, swivel: false, wings: false, tufted: true,
     },
   },
   {
@@ -154,7 +154,7 @@ const LEGADO_CATALOGUE = [
     defaults: { material: 'lino', color: 'arena', madera: 'nogal' },
     config: {
       legStyle: 'hidden', armStyle: 'wrap', backHeight: 1.0,
-      seatWidth: 1.06, headrest: true, swivel: false, wings: true,
+      seatWidth: 1.06, headrest: true, swivel: false, wings: true, tufted: true,
     },
   },
 ];
