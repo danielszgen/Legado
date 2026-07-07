@@ -18,8 +18,8 @@ export function SceneEnvironment() {
     const p = readScroll().progress
     // De tarde dorada (beats 1–4) a penumbra de brasa (beats 5–7)
     const dusk = THREE.MathUtils.clamp((p - 4.4) / 2.4, 0, 1)
-    if (keyLight.current) keyLight.current.intensity = THREE.MathUtils.lerp(2.6, 1.05, dusk)
-    if (ambient.current) ambient.current.intensity = THREE.MathUtils.lerp(0.5, 0.28, dusk)
+    if (keyLight.current) keyLight.current.intensity = THREE.MathUtils.lerp(3.0, 1.25, dusk)
+    if (ambient.current) ambient.current.intensity = THREE.MathUtils.lerp(0.65, 0.34, dusk)
     if (ember.current) ember.current.intensity = THREE.MathUtils.lerp(0.12, 1.5, dusk)
   })
 

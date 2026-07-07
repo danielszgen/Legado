@@ -7,9 +7,17 @@ narrativos. En cada beat aparecen el titular y los beneficios (base giratoria,
 cabezal reclinable, masaje, manta calefactora, elevador), y cierra con
 «Hecho para quedarse.»
 
-El modelo placeholder sigue la referencia real `web/assets/ref/venus.png`:
-tela gris perla, respaldo alto con cabezal integrado, brazos tipo pala y base
-giratoria de aspa metálica negra de 5 radios.
+**Precarga cinematográfica (~1 s)**: vista general del salón
+(`intro-salon.webp`, render de sección en ladrillo) → zoom hacia la butaca →
+corte al rincón con el mecanismo abierto (`intro-butaca.webp`) → fundido
+transparente al 3D: la cámara arranca clavada en ese mismo encuadre y viaja
+hasta el hero mientras la butaca se asienta (cierra inclinación y giro).
+Ver `IntroPreload.tsx` + `lib/introBus.ts` (blend consumido por CameraRig y
+VenusModel). El revelado espera a que el glb esté cargado.
+
+**El modelo es el escaneo 3D real del Venus** (reclinado, mecanismo abierto;
+textura fotográfica), optimizado 11 MB → 1.38 MB con gltf-transform. El
+generador procedural `tools/generate-venus-glb.mjs` queda como fallback.
 
 ## Arranque
 

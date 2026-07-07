@@ -12,6 +12,12 @@
       "runtimeExecutable": "npm",
       "runtimeArgs": ["run", "dev", "--prefix", "web/experiences/venus-legado"],
       "port": 5178
+    },
+    {
+      "name": "home-cinema",
+      "runtimeExecutable": "npm",
+      "runtimeArgs": ["run", "dev", "--prefix", "web/experiences/home-cinema"],
+      "port": 5179
     }
   ]
 }

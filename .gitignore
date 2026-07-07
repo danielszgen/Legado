@@ -12,3 +12,6 @@ Desktop.ini
 
 # Dependencias (si se añaden en el futuro)
 node_modules/
+
+# Sitio unificado ensamblado (tools/build-site.sh)
+dist-site/

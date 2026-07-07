@@ -5,11 +5,17 @@ import * as THREE from 'three'
 import { easing } from 'maath'
 import { BEATS, SEGMENTS } from '../data/beats'
 import { publishScroll, easeInOutPower2 } from '../lib/scrollBus'
+import { introBlend } from '../lib/introBus'
 
 const posA = new THREE.Vector3()
 const posB = new THREE.Vector3()
 const tgtA = new THREE.Vector3()
 const tgtB = new THREE.Vector3()
+
+// Encuadre de la intro: clavado junto a la butaca (mismo plano que el render
+// del rincón). Al revelar, la cámara viaja de aquí al ancla del hero.
+const INTRO_POS = new THREE.Vector3(-1.15, 0.95, 2.05)
+const INTRO_TGT = new THREE.Vector3(0, 0.62, 0.15)
 
 /**
  * Interpola posición y target de cámara entre las anclas del storyboard
@@ -30,9 +36,16 @@ export function CameraRig() {
     posA.fromArray(BEATS[i].camPos).lerp(posB.fromArray(BEATS[i + 1].camPos), t)
     tgtA.fromArray(BEATS[i].camTarget).lerp(tgtB.fromArray(BEATS[i + 1].camTarget), t)
 
+    // Intro: parte del encuadre pegado a la butaca y viaja al hero
+    const b = introBlend()
+    if (b < 1) {
+      posA.lerpVectors(INTRO_POS, posA, b)
+      tgtA.lerpVectors(INTRO_TGT, tgtA, b)
+    }
+
     // Parallax de ratón muy sutil: la cámara «respira» con quien mira
-    posA.x += state.pointer.x * 0.07
-    posA.y += state.pointer.y * 0.045
+    posA.x += state.pointer.x * 0.07 * b
+    posA.y += state.pointer.y * 0.045 * b
 
     easing.damp3(state.camera.position, posA, 0.3, delta)
     easing.damp3(lookAt.current, tgtA, 0.3, delta)
