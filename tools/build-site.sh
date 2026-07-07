@@ -17,8 +17,18 @@ echo "→ build home-cinema"
 (cd "$ROOT/web/experiences/home-cinema" && npm run build) >/dev/null
 
 echo "→ ensamblando $OUT"
+# Conserva el enlace del proyecto Vercel («legado») entre reconstrucciones
+LINK_BACKUP=""
+if [ -d "$OUT/.vercel" ]; then
+  LINK_BACKUP="$(mktemp -d)"
+  cp -R "$OUT/.vercel" "$LINK_BACKUP/"
+fi
 rm -rf "$OUT"
 mkdir -p "$OUT"
+if [ -n "$LINK_BACKUP" ]; then
+  cp -R "$LINK_BACKUP/.vercel" "$OUT/"
+  rm -rf "$LINK_BACKUP"
+fi
 rsync -a \
   --exclude 'experiences/*/node_modules' \
   --exclude 'experiences/*/src' \
